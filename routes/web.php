@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SelectPrefectureController;
+use App\Http\Controllers\OPCodeController;
+use App\Http\Controllers\TransactionCaseSearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,23 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture']);
+Route::get('/opcode',[OPCodeController::class, 'opcode']);
+Route::get('/tcsearch',[TransactionCaseSearchController::class, 'tcsearch']);
+// Route::get('/selectprefecture/prefecturecode', function(){
+    // $html = <<<EOF
+    // <html>
+    // <head>
+    // <title>PrefectureCode</title>
+    // </head>
+    // <body>
+    // <p>02</p>
+    // </body>
+    // </html>
+    // EOF;
+    // return $html;
+// }); 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
