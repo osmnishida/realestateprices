@@ -6,6 +6,7 @@
   </x-slot>
   <div class="max-w-7xl max-auto px-6">
     <form method="get" action="opcode">
+      @csrf
       <p>都道府県選択</p>
       <select name="prefecturecode">
         <option value="01">北海道</option>

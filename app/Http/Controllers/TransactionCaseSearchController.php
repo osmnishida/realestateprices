@@ -19,9 +19,13 @@ class TransactionCaseSearchController extends Controller
         $tradeSearchUrl = "$basicTradeSearch" . "from=" . "$fromyyyyn" . "&to=" . "$toyyyyn" . "&city=" . "$citycode";
         // return $tradeSearchUrl;
         $jsonTradeSearch = file_get_contents($tradeSearchUrl);
-        return $jsonTradeSearch;
-        // $arrTradeSearch = json_decode($jsonTradeSearch,true);
+        // return $jsonTradeSearch;
+        $arrTradeSearch = json_decode($jsonTradeSearch,true);
         // return $arrTradeSearch;
         // dd($arrTradeSearch);
+        $arrTradeSearch = $arrTradeSearch["data"];
+        // return $arrTradeSearch;
+        return view('searchresults', compact('arrTradeSearch'));
+    
     }
 }

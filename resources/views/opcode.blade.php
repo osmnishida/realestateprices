@@ -7,6 +7,7 @@
   <body>
     <h1>クリエ文字列取得ページ</h1>
     <form method="get" action="tcsearch">
+      @csrf
       取引時期From<input type="text" name="fromyyyyn" size="10" value="20224">
       <br>
       取引時期To<input type="text" name="toyyyyn" size="10" value="20231">
