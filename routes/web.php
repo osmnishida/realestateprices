@@ -18,8 +18,8 @@ use App\Http\Controllers\TransactionCaseSearchController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('selectprefecture');
+}) ->middleware('auth') ;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
