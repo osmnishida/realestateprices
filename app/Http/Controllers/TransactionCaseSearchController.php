@@ -8,6 +8,7 @@ class TransactionCaseSearchController extends Controller
 {
     public function tcsearch(Request $request) {
         // phpinfo();
+        // print_r($request);
         $fromyyyyn = $request->fromyyyyn;
         $toyyyyn = $request->toyyyyn;
         $citycode = $request->citycode;

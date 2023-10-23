@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SelectPrefectureController;
 use App\Http\Controllers\OPCodeController;
 use App\Http\Controllers\TransactionCaseSearchController;
+use App\Http\Controllers\LandPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/dashboard', function () {
 Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture']);
 Route::get('/opcode',[OPCodeController::class, 'opcode']);
 Route::get('/tcsearch',[TransactionCaseSearchController::class, 'tcsearch']);
+
+Route::post('/landpost',[LandPostController::class, 'store']);
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>
