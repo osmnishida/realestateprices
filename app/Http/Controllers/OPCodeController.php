@@ -25,9 +25,9 @@ class OPCodeController extends Controller
         $arrjsoncc = $arrjsoncc["data"];
         return view('opcode', compact('arrjsoncc'));
 
-        $data =["id" => "terurou",
-                "name" => "八木照朗",
-                "age" => 25];
+        // $data =["id" => "terurou",
+                // "name" => "八木照朗",
+                // "age" => 25];
         // return $data["name"];
             
     }

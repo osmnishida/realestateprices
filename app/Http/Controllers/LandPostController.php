@@ -39,7 +39,10 @@ class LandPostController extends Controller
             // var_dump($landPostValue["Period"]);
             // echo "<br>";
 
-            $post = LandPost::create([
+            $insert_array = [];
+
+
+            $insert_array[] = [
                 'prefecture' => $landPostValue["Prefecture"],
                 'municipality' => $landPostValue["Municipality"],
                 'districtname' => $landPostValue["DistrictName"],
@@ -55,9 +58,12 @@ class LandPostController extends Controller
                 'floorarearatio' => $landPostValue["FloorAreaRatio"],
                 'region' => $landPostValue["Region"],
                 'period' => $landPostValue["Period"]
-            ]);
+                ];
+
+            LandPost::insert($insert_array);
+
         }
         $request->session()->flash('message', '保存しました');
-        return view('selectprefecture');
+        return redirect()->route('selectprefecture');
     }
 }

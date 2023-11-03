@@ -6,6 +6,7 @@ use App\Http\Controllers\SelectPrefectureController;
 use App\Http\Controllers\OPCodeController;
 use App\Http\Controllers\TransactionCaseSearchController;
 use App\Http\Controllers\LandPostController;
+use App\Http\Controllers\AllSaveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture']);
+Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture'])->name('selectprefecture');
 Route::get('/opcode',[OPCodeController::class, 'opcode']);
 Route::get('/tcsearch',[TransactionCaseSearchController::class, 'tcsearch']);
-
 Route::post('/landpost',[LandPostController::class, 'store']);
+Route::get('/allsave',[AllSaveController::class, 'citycode']);
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>
