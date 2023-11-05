@@ -9,19 +9,19 @@ class AllSaveController extends Controller
 {
     public function citycode() {
         $basiccca="https://www.land.mlit.go.jp/webland/api/CitySearch?area=";
-        $prefecturecode="01";
+        $prefecturecode="06";
         $ccaurl="$basiccca" . "$prefecturecode";
         $jsoncc = file_get_contents($ccaurl);
         $jsoncc = mb_convert_encoding($jsoncc, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
         $arrjsoncc = json_decode($jsoncc,true);
         $arrjsoncc = $arrjsoncc["data"];
-        for ($i=1; $i<=10; $i++) {
+        for ($i=68; $i>=47; $i--) {
             if ($i==1) {
                 $fromyyyyn="20053";
                 $toyyyyn="20053";
             }
             if ($i==2) {
-                $fromyyyn="20054";
+                $fromyyyyn="20054";
                 $toyyyyn="20054";
             }
             if ($i==3) {
@@ -29,7 +29,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20061";
             }
             if ($i==4) {
-                $fromyyyn="20062";
+                $fromyyyyn="20062";
                 $toyyyyn="20062";
             }
             if ($i==5) {
@@ -37,7 +37,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20063";
             }
             if ($i==6) {
-                $fromyyyn="20064";
+                $fromyyyyn="20064";
                 $toyyyyn="20064";
             }
             if ($i==7) {
@@ -45,7 +45,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20071";
             }
             if ($i==8) {
-                $fromyyyn="20072";
+                $fromyyyyn="20072";
                 $toyyyyn="20072";
             }
             if ($i==9) {
@@ -53,7 +53,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20073";
             }
             if ($i==10) {
-                $fromyyyn="20074";
+                $fromyyyyn="20074";
                 $toyyyyn="20074";
             }
             if ($i==11) {
@@ -61,7 +61,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20081";
             }
             if ($i==12) {
-                $fromyyyn="20082";
+                $fromyyyyn="20082";
                 $toyyyyn="20082";
             }
             if ($i==13) {
@@ -69,7 +69,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20083";
             }
             if ($i==14) {
-                $fromyyyn="20084";
+                $fromyyyyn="20084";
                 $toyyyyn="20084";
             }
             if ($i==15) {
@@ -77,7 +77,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20091";
             }
             if ($i==16) {
-                $fromyyyn="20092";
+                $fromyyyyn="20092";
                 $toyyyyn="20092";
             }
             if ($i==17) {
@@ -85,7 +85,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20093";
             }
             if ($i==18) {
-                $fromyyyn="20094";
+                $fromyyyyn="20094";
                 $toyyyyn="20094";
             }
             if ($i==19) {
@@ -93,7 +93,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20101";
             }
             if ($i==20) {
-                $fromyyyn="20102";
+                $fromyyyyn="20102";
                 $toyyyyn="20102";
             }
             if ($i==21) {
@@ -101,7 +101,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20103";
             }
             if ($i==22) {
-                $fromyyyn="20104";
+                $fromyyyyn="20104";
                 $toyyyyn="20104";
             }
             if ($i==23) {
@@ -109,7 +109,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20111";
             }
             if ($i==24) {
-                $fromyyyn="20112";
+                $fromyyyyn="20112";
                 $toyyyyn="20112";
             }
             if ($i==25) {
@@ -117,7 +117,7 @@ class AllSaveController extends Controller
                 $toyyyyn="200113";
             }
             if ($i==26) {
-                $fromyyyn="20114";
+                $fromyyyyn="20114";
                 $toyyyyn="20114";
             }
             if ($i==27) {
@@ -125,7 +125,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20121";
             }
             if ($i==28) {
-                $fromyyyn="20122";
+                $fromyyyyn="20122";
                 $toyyyyn="20122";
             }
             if ($i==29) {
@@ -133,7 +133,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20123";
             }
             if ($i==30) {
-                $fromyyyn="20124";
+                $fromyyyyn="20124";
                 $toyyyyn="20124";
             }
             if ($i==31) {
@@ -141,7 +141,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20131";
             }
             if ($i==32) {
-                $fromyyyn="20132";
+                $fromyyyyn="20132";
                 $toyyyyn="20132";
             }
             if ($i==33) {
@@ -149,7 +149,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20133";
             }
             if ($i==34) {
-                $fromyyyn="20134";
+                $fromyyyyn="20134";
                 $toyyyyn="20134";
             }
             if ($i==35) {
@@ -157,7 +157,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20151";
             }
             if ($i==36) {
-                $fromyyyn="20152";
+                $fromyyyyn="20152";
                 $toyyyyn="20152";
             }
             if ($i==37) {
@@ -165,7 +165,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20153";
             }
             if ($i==38) {
-                $fromyyyn="20154";
+                $fromyyyyn="20154";
                 $toyyyyn="20154";
             }
             if ($i==39) {
@@ -173,7 +173,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20161";
             }
             if ($i==40) {
-                $fromyyyn="20162";
+                $fromyyyyn="20162";
                 $toyyyyn="20162";
             }
             if ($i==41) {
@@ -181,7 +181,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20163";
             }
             if ($i==42) {
-                $fromyyyn="20164";
+                $fromyyyyn="20164";
                 $toyyyyn="20164";
             }
             if ($i==43) {
@@ -189,7 +189,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20171";
             }
             if ($i==44) {
-                $fromyyyn="20172";
+                $fromyyyyn="20172";
                 $toyyyyn="20172";
             }
             if ($i==45) {
@@ -197,7 +197,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20173";
             }
             if ($i==46) {
-                $fromyyyn="20174";
+                $fromyyyyn="20174";
                 $toyyyyn="20174";
             }
             if ($i==47) {
@@ -205,7 +205,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20181";
             }
             if ($i==48) {
-                $fromyyyn="20182";
+                $fromyyyyn="20182";
                 $toyyyyn="20182";
             }
             if ($i==49) {
@@ -213,7 +213,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20183";
             }
             if ($i==50) {
-                $fromyyyn="20184";
+                $fromyyyyn="20184";
                 $toyyyyn="20184";
             }
             if ($i==51) {
@@ -221,7 +221,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20191";
             }
             if ($i==52) {
-                $fromyyyn="20192";
+                $fromyyyyn="20192";
                 $toyyyyn="20192";
             }
             if ($i==53) {
@@ -229,7 +229,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20193";
             }
             if ($i==54) {
-                $fromyyyn="20194";
+                $fromyyyyn="20194";
                 $toyyyyn="20194";
             }
             if ($i==55) {
@@ -237,7 +237,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20201";
             }
             if ($i==56) {
-                $fromyyyn="20202";
+                $fromyyyyn="20202";
                 $toyyyyn="20202";
             }
             if ($i==57) {
@@ -245,7 +245,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20203";
             }
             if ($i==58) {
-                $fromyyyn="20204";
+                $fromyyyyn="20204";
                 $toyyyyn="20204";
             }
             if ($i==59) {
@@ -253,7 +253,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20211";
             }
             if ($i==60) {
-                $fromyyyn="20212";
+                $fromyyyyn="20212";
                 $toyyyyn="20212";
             }
             if ($i==61) {
@@ -261,7 +261,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20213";
             }
             if ($i==62) {
-                $fromyyyn="20214";
+                $fromyyyyn="20214";
                 $toyyyyn="20214";
             }
             if ($i==63) {
@@ -269,7 +269,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20221";
             }
             if ($i==64) {
-                $fromyyyn="20222";
+                $fromyyyyn="20222";
                 $toyyyyn="20222";
             }
             if ($i==65) {
@@ -277,7 +277,7 @@ class AllSaveController extends Controller
                 $toyyyyn="20223";
             }
             if ($i==66) {
-                $fromyyyn="20224";
+                $fromyyyyn="20224";
                 $toyyyyn="20224";
             }
             if ($i==67) {
@@ -285,11 +285,13 @@ class AllSaveController extends Controller
                 $toyyyyn="20231";
             }
             if ($i==68) {
-                $fromyyyn="20232";
+                $fromyyyyn="20232";
                 $toyyyyn="20232";
             }
             
             echo $i;
+            echo "fromyyyyn:".$fromyyyyn;
+            echo "toyyyyn:".$toyyyyn;
             echo "<br>";
             usleep(1000000);
 
@@ -425,6 +427,9 @@ class AllSaveController extends Controller
                                 echo "取引の事情等　未設定検出";
                                 $respValue["Remarks"] = "未設定";
                             }
+                            // if($respValue["Period"]=="2023年第２四半期") {
+                                // $respValue["period"] = 
+                            // }
                             var_dump($respValue);
                             echo "<br>";
 

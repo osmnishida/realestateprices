@@ -7,6 +7,8 @@ use App\Http\Controllers\OPCodeController;
 use App\Http\Controllers\TransactionCaseSearchController;
 use App\Http\Controllers\LandPostController;
 use App\Http\Controllers\AllSaveController;
+use App\Http\Controllers\ListDisplayController;
+use App\Http\Controllers\PrefectureListDisplayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,8 @@ Route::get('/opcode',[OPCodeController::class, 'opcode']);
 Route::get('/tcsearch',[TransactionCaseSearchController::class, 'tcsearch']);
 Route::post('/landpost',[LandPostController::class, 'store']);
 Route::get('/allsave',[AllSaveController::class, 'citycode']);
+Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay']);
+Route::get('/prefecturelistdisplay',[PrefectureListDisplayController::class, 'prefecture'])->name('prefecturelistdisplay');
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>
