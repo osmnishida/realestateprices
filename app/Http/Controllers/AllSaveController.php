@@ -9,13 +9,13 @@ class AllSaveController extends Controller
 {
     public function citycode() {
         $basiccca="https://www.land.mlit.go.jp/webland/api/CitySearch?area=";
-        $prefecturecode="06";
+        $prefecturecode="14";
         $ccaurl="$basiccca" . "$prefecturecode";
         $jsoncc = file_get_contents($ccaurl);
         $jsoncc = mb_convert_encoding($jsoncc, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
         $arrjsoncc = json_decode($jsoncc,true);
         $arrjsoncc = $arrjsoncc["data"];
-        for ($i=68; $i>=47; $i--) {
+        for ($i=72; $i>=1; $i--) {
             if ($i==1) {
                 $fromyyyyn="20053";
                 $toyyyyn="20053";
@@ -114,7 +114,7 @@ class AllSaveController extends Controller
             }
             if ($i==25) {
                 $fromyyyyn="20113";
-                $toyyyyn="200113";
+                $toyyyyn="20113";
             }
             if ($i==26) {
                 $fromyyyyn="20114";
@@ -153,138 +153,154 @@ class AllSaveController extends Controller
                 $toyyyyn="20134";
             }
             if ($i==35) {
+                $fromyyyyn="20141";
+                $toyyyyn="20141";
+            }
+            if ($i==36) {
+                $fromyyyyn="20142";
+                $toyyyyn="20142";
+            }
+            if ($i==37) {
+                $fromyyyyn="20143";
+                $toyyyyn="20143";
+            }
+            if ($i==38) {
+                $fromyyyyn="20144";
+                $toyyyyn="20144";
+            }
+            if ($i==39) {
                 $fromyyyyn="20151";
                 $toyyyyn="20151";
             }
-            if ($i==36) {
+            if ($i==40) {
                 $fromyyyyn="20152";
                 $toyyyyn="20152";
             }
-            if ($i==37) {
+            if ($i==41) {
                 $fromyyyyn="20153";
                 $toyyyyn="20153";
             }
-            if ($i==38) {
+            if ($i==42) {
                 $fromyyyyn="20154";
                 $toyyyyn="20154";
             }
-            if ($i==39) {
+            if ($i==43) {
                 $fromyyyyn="20161";
                 $toyyyyn="20161";
             }
-            if ($i==40) {
+            if ($i==44) {
                 $fromyyyyn="20162";
                 $toyyyyn="20162";
             }
-            if ($i==41) {
+            if ($i==45) {
                 $fromyyyyn="20163";
                 $toyyyyn="20163";
             }
-            if ($i==42) {
+            if ($i==46) {
                 $fromyyyyn="20164";
                 $toyyyyn="20164";
             }
-            if ($i==43) {
+            if ($i==47) {
                 $fromyyyyn="20171";
                 $toyyyyn="20171";
             }
-            if ($i==44) {
+            if ($i==48) {
                 $fromyyyyn="20172";
                 $toyyyyn="20172";
             }
-            if ($i==45) {
+            if ($i==49) {
                 $fromyyyyn="20173";
                 $toyyyyn="20173";
             }
-            if ($i==46) {
+            if ($i==50) {
                 $fromyyyyn="20174";
                 $toyyyyn="20174";
             }
-            if ($i==47) {
+            if ($i==51) {
                 $fromyyyyn="20181";
                 $toyyyyn="20181";
             }
-            if ($i==48) {
+            if ($i==52) {
                 $fromyyyyn="20182";
                 $toyyyyn="20182";
             }
-            if ($i==49) {
+            if ($i==53) {
                 $fromyyyyn="20183";
                 $toyyyyn="20183";
             }
-            if ($i==50) {
+            if ($i==54) {
                 $fromyyyyn="20184";
                 $toyyyyn="20184";
             }
-            if ($i==51) {
+            if ($i==55) {
                 $fromyyyyn="20191";
                 $toyyyyn="20191";
             }
-            if ($i==52) {
+            if ($i==56) {
                 $fromyyyyn="20192";
                 $toyyyyn="20192";
             }
-            if ($i==53) {
+            if ($i==57) {
                 $fromyyyyn="20193";
                 $toyyyyn="20193";
             }
-            if ($i==54) {
+            if ($i==58) {
                 $fromyyyyn="20194";
                 $toyyyyn="20194";
             }
-            if ($i==55) {
+            if ($i==59) {
                 $fromyyyyn="20201";
                 $toyyyyn="20201";
             }
-            if ($i==56) {
+            if ($i==60) {
                 $fromyyyyn="20202";
                 $toyyyyn="20202";
             }
-            if ($i==57) {
+            if ($i==61) {
                 $fromyyyyn="20203";
                 $toyyyyn="20203";
             }
-            if ($i==58) {
+            if ($i==62) {
                 $fromyyyyn="20204";
                 $toyyyyn="20204";
             }
-            if ($i==59) {
+            if ($i==63) {
                 $fromyyyyn="20211";
                 $toyyyyn="20211";
             }
-            if ($i==60) {
+            if ($i==64) {
                 $fromyyyyn="20212";
                 $toyyyyn="20212";
             }
-            if ($i==61) {
+            if ($i==65) {
                 $fromyyyyn="20213";
                 $toyyyyn="20213";
             }
-            if ($i==62) {
+            if ($i==66) {
                 $fromyyyyn="20214";
                 $toyyyyn="20214";
             }
-            if ($i==63) {
+            if ($i==67) {
                 $fromyyyyn="20221";
                 $toyyyyn="20221";
             }
-            if ($i==64) {
+            if ($i==68) {
                 $fromyyyyn="20222";
                 $toyyyyn="20222";
             }
-            if ($i==65) {
+            if ($i==69) {
                 $fromyyyyn="20223";
                 $toyyyyn="20223";
             }
-            if ($i==66) {
+            if ($i==70) {
                 $fromyyyyn="20224";
                 $toyyyyn="20224";
             }
-            if ($i==67) {
+            if ($i==71) {
                 $fromyyyyn="20231";
                 $toyyyyn="20231";
             }
-            if ($i==68) {
+            if ($i==72) {
                 $fromyyyyn="20232";
                 $toyyyyn="20232";
             }
@@ -294,16 +310,19 @@ class AllSaveController extends Controller
             echo "toyyyyn:".$toyyyyn;
             echo "<br>";
             usleep(1000000);
+            sleep(3);
 
 
             foreach ($arrjsoncc as $cc) {
                 $basicTradeSearch = 'https://www.land.mlit.go.jp/webland/api/TradeListSearch?';
                 $citycode = $cc["id"];
-                $tradeSearchUrl = "$basicTradeSearch" . "from=" . "$fromyyyyn" . "&to=" . "$toyyyyn" . "&city=" . "$citycode";
+                $tradeSearchUrl = $basicTradeSearch . "from=" . $fromyyyyn . "&to=" . $toyyyyn . "&city=" . "$citycode";
+                // dd($tradeSearchUrl);
                 $resp = \Http::get($tradeSearchUrl);
                 $arrResp = json_decode($resp->body(),true);
                 $arrResp = $arrResp["data"];
                 usleep(1000000);
+                sleep(3);
                 foreach ($arrResp as $respValue) {
                     switch($respValue["Type"]) {
                         case "宅地(土地)":
@@ -427,11 +446,227 @@ class AllSaveController extends Controller
                                 echo "取引の事情等　未設定検出";
                                 $respValue["Remarks"] = "未設定";
                             }
-                            // if($respValue["Period"]=="2023年第２四半期") {
-                                // $respValue["period"] = 
-                            // }
+
+                            if($respValue["Period"]=="2023年第２四半期") {
+                                $respValue["Period"] = "2023-06-30";
+                            }
+                            if($respValue["Period"]=="2023年第１四半期") {
+                                $respValue["Period"] = "2023-03-31";
+                            }
+                            if($respValue["Period"]=="2022年第４四半期") {
+                                $respValue["Period"] = "2022-12-31";
+                            }
+                            if($respValue["Period"]=="2022年第３四半期") {
+                                $respValue["Period"] = "2022-09-30";
+                            }
+                            if($respValue["Period"]=="2022年第２四半期") {
+                                $respValue["Period"] = "2022-06-30";
+                            }
+                            if($respValue["Period"]=="2022年第１四半期") {
+                                $respValue["Period"] = "2022-03-31";
+                            }
+                            if($respValue["Period"]=="2021年第４四半期") {
+                                $respValue["Period"] = "2021-12-31";
+                            }
+                            if($respValue["Period"]=="2021年第３四半期") {
+                                $respValue["Period"] = "2021-09-30";
+                            }
+                            if($respValue["Period"]=="2021年第２四半期") {
+                                $respValue["Period"] = "2021-06-30";
+                            }
+                            if($respValue["Period"]=="2021年第１四半期") {
+                                $respValue["Period"] = "2021-03-31";
+                            }
+                            if($respValue["Period"]=="2020年第４四半期") {
+                                $respValue["Period"] = "2020-12-31";
+                            }
+                            if($respValue["Period"]=="2020年第３四半期") {
+                                $respValue["Period"] = "2020-09-30";
+                            }
+                            if($respValue["Period"]=="2020年第２四半期") {
+                                $respValue["Period"] = "2020-06-30";
+                            }
+                            if($respValue["Period"]=="2020年第１四半期") {
+                                $respValue["Period"] = "2020-03-31";
+                            }
+                            if($respValue["Period"]=="2019年第４四半期") {
+                                $respValue["Period"] = "2019-12-31";
+                            }
+                            if($respValue["Period"]=="2019年第３四半期") {
+                                $respValue["Period"] = "2019-09-30";
+                            }
+                            if($respValue["Period"]=="2019年第２四半期") {
+                                $respValue["Period"] = "2019-06-30";
+                            }
+                            if($respValue["Period"]=="2019年第１四半期") {
+                                $respValue["Period"] = "2019-03-31";
+                            }
+                            if($respValue["Period"]=="2018年第４四半期") {
+                                $respValue["Period"] = "2018-12-31";
+                            }
+                            if($respValue["Period"]=="2018年第３四半期") {
+                                $respValue["Period"] = "2018-09-30";
+                            }
+                            if($respValue["Period"]=="2018年第２四半期") {
+                                $respValue["Period"] = "2018-06-30";
+                            }
+                            if($respValue["Period"]=="2018年第１四半期") {
+                                $respValue["Period"] = "2018-03-31";
+                            }
+                            if($respValue["Period"]=="2017年第４四半期") {
+                                $respValue["Period"] = "2017-12-31";
+                            }
+                            if($respValue["Period"]=="2017年第３四半期") {
+                                $respValue["Period"] = "2017-09-30";
+                            }
+                            if($respValue["Period"]=="2017年第２四半期") {
+                                $respValue["Period"] = "2017-06-30";
+                            }
+                            if($respValue["Period"]=="2017年第１四半期") {
+                                $respValue["Period"] = "2017-03-31";
+                            }
+                            if($respValue["Period"]=="2016年第４四半期") {
+                                $respValue["Period"] = "2016-12-31";
+                            }
+                            if($respValue["Period"]=="2016年第３四半期") {
+                                $respValue["Period"] = "2016-09-30";
+                            }
+                            if($respValue["Period"]=="2016年第２四半期") {
+                                $respValue["Period"] = "2016-06-30";
+                            }
+                            if($respValue["Period"]=="2016年第１四半期") {
+                                $respValue["Period"] = "2016-03-31";
+                            }
+                            if($respValue["Period"]=="2015年第４四半期") {
+                                $respValue["Period"] = "2015-12-31";
+                            }
+                            if($respValue["Period"]=="2015年第３四半期") {
+                                $respValue["Period"] = "2015-09-30";
+                            }
+                            if($respValue["Period"]=="2015年第２四半期") {
+                                $respValue["Period"] = "2015-06-30";
+                            }
+                            if($respValue["Period"]=="2015年第１四半期") {
+                                $respValue["Period"] = "2015-03-31";
+                            }
+                            if($respValue["Period"]=="2014年第４四半期") {
+                                $respValue["Period"] = "2014-12-31";
+                            }
+                            if($respValue["Period"]=="2014年第３四半期") {
+                                $respValue["Period"] = "2014-09-30";
+                            }
+                            if($respValue["Period"]=="2014年第２四半期") {
+                                $respValue["Period"] = "2014-06-30";
+                            }
+                            if($respValue["Period"]=="2014年第１四半期") {
+                                $respValue["Period"] = "2014-03-31";
+                            }
+                            if($respValue["Period"]=="2013年第４四半期") {
+                                $respValue["Period"] = "2013-12-31";
+                            }
+                            if($respValue["Period"]=="2013年第３四半期") {
+                                $respValue["Period"] = "2013-09-30";
+                            }
+                            if($respValue["Period"]=="2013年第２四半期") {
+                                $respValue["Period"] = "2013-06-30";
+                            }
+                            if($respValue["Period"]=="2013年第１四半期") {
+                                $respValue["Period"] = "2013-03-31";
+                            }
+                            if($respValue["Period"]=="2012年第４四半期") {
+                                $respValue["Period"] = "2012-12-31";
+                            }
+                            if($respValue["Period"]=="2012年第３四半期") {
+                                $respValue["Period"] = "2012-09-30";
+                            }
+                            if($respValue["Period"]=="2012年第２四半期") {
+                                $respValue["Period"] = "2012-06-30";
+                            }
+                            if($respValue["Period"]=="2012年第１四半期") {
+                                $respValue["Period"] = "2012-03-31";
+                            }
+                            if($respValue["Period"]=="2011年第４四半期") {
+                                $respValue["Period"] = "2011-12-31";
+                            }
+                            if($respValue["Period"]=="2011年第３四半期") {
+                                $respValue["Period"] = "2011-09-30";
+                            }
+                            if($respValue["Period"]=="2011年第２四半期") {
+                                $respValue["Period"] = "2011-06-30";
+                            }
+                            if($respValue["Period"]=="2011年第１四半期") {
+                                $respValue["Period"] = "2011-03-31";
+                            }
+                            if($respValue["Period"]=="2010年第４四半期") {
+                                $respValue["Period"] = "2010-12-31";
+                            }
+                            if($respValue["Period"]=="2010年第３四半期") {
+                                $respValue["Period"] = "2010-09-30";
+                            }
+                            if($respValue["Period"]=="2010年第２四半期") {
+                                $respValue["Period"] = "2010-06-30";
+                            }
+                            if($respValue["Period"]=="2010年第１四半期") {
+                                $respValue["Period"] = "2010-03-31";
+                            }
+                            if($respValue["Period"]=="2009年第４四半期") {
+                                $respValue["Period"] = "2009-12-31";
+                            }
+                            if($respValue["Period"]=="2009年第３四半期") {
+                                $respValue["Period"] = "2009-09-30";
+                            }
+                            if($respValue["Period"]=="2009年第２四半期") {
+                                $respValue["Period"] = "2009-06-30";
+                            }
+                            if($respValue["Period"]=="2009年第１四半期") {
+                                $respValue["Period"] = "2009-03-31";
+                            }
+                            if($respValue["Period"]=="2008年第４四半期") {
+                                $respValue["Period"] = "2008-12-31";
+                            }
+                            if($respValue["Period"]=="2008年第３四半期") {
+                                $respValue["Period"] = "2008-09-30";
+                            }
+                            if($respValue["Period"]=="2008年第２四半期") {
+                                $respValue["Period"] = "2008-06-30";
+                            }
+                            if($respValue["Period"]=="2008年第１四半期") {
+                                $respValue["Period"] = "2008-03-31";
+                            }
+                            if($respValue["Period"]=="2007年第４四半期") {
+                                $respValue["Period"] = "2007-12-31";
+                            }
+                            if($respValue["Period"]=="2007年第３四半期") {
+                                $respValue["Period"] = "2007-09-30";
+                            }
+                            if($respValue["Period"]=="2007年第２四半期") {
+                                $respValue["Period"] = "2007-06-30";
+                            }
+                            if($respValue["Period"]=="2007年第１四半期") {
+                                $respValue["Period"] = "2007-03-31";
+                            }
+                            if($respValue["Period"]=="2006年第４四半期") {
+                                $respValue["Period"] = "2006-12-31";
+                            }
+                            if($respValue["Period"]=="2006年第３四半期") {
+                                $respValue["Period"] = "2006-09-30";
+                            }
+                            if($respValue["Period"]=="2006年第２四半期") {
+                                $respValue["Period"] = "2006-06-30";
+                            }
+                            if($respValue["Period"]=="2006年第１四半期") {
+                                $respValue["Period"] = "2006-03-31";
+                            }
+                            if($respValue["Period"]=="2005年第４四半期") {
+                                $respValue["Period"] = "2005-12-31";
+                            }
+                            if($respValue["Period"]=="2005年第３四半期") {
+                                $respValue["Period"] = "2005-09-30";
+                            }
+
                             var_dump($respValue);
                             echo "<br>";
+                            sleep(1);
 
                             $insert_array = [];
                             $insert_array[] = [
@@ -463,6 +698,7 @@ class AllSaveController extends Controller
                     }
                 }
             }
+            sleep(30);
         }
     }
 }
