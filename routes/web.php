@@ -9,6 +9,9 @@ use App\Http\Controllers\LandPostController;
 use App\Http\Controllers\AllSaveController;
 use App\Http\Controllers\ListDisplayController;
 use App\Http\Controllers\PrefectureListDisplayController;
+use App\Http\Controllers\CityCodePostController;
+use App\Http\Controllers\ListDisplayCityController;
+use App\Http\Controllers\ListDisplayCityResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +39,9 @@ Route::post('/landpost',[LandPostController::class, 'store']);
 Route::get('/allsave',[AllSaveController::class, 'citycode']);
 Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay']);
 Route::get('/prefecturelistdisplay',[PrefectureListDisplayController::class, 'prefecture'])->name('prefecturelistdisplay');
+Route::get('/citycodepost',[CityCodePostController::class, 'store'])->name('citycodepost');
+Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity');
+Route::get('/listdisplaycityresult',[ListDisplayCityResultController::class, 'listdisplaycityresult'])->name('listdisplaycityresult');
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>
