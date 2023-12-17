@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SelectPrefectureController;
 use App\Http\Controllers\OPCodeController;
 use App\Http\Controllers\TransactionCaseSearchController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\PrefectureListDisplayController;
 use App\Http\Controllers\CityCodePostController;
 use App\Http\Controllers\ListDisplayCityController;
 use App\Http\Controllers\ListDisplayCityResultController;
+use App\Http\Controllers\PrefectureBarChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,18 @@ use App\Http\Controllers\ListDisplayCityResultController;
 |
 */
 
-Route::get('/', function () {
-    return view('selectprefecture');
-}) ->middleware('auth') ;
+// Route::get('/', function () {
+    // return view('selectprefecture');
+// }) ->middleware('auth') ;
+
+Route::get('/',[IndexController::class, 'index'])->name('index');
+// Route::get('/', function() {
+    // return view('index');
+// });
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,12 +47,13 @@ Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefec
 Route::get('/opcode',[OPCodeController::class, 'opcode']);
 Route::get('/tcsearch',[TransactionCaseSearchController::class, 'tcsearch']);
 Route::post('/landpost',[LandPostController::class, 'store']);
-Route::get('/allsave',[AllSaveController::class, 'citycode']);
-Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay']);
+Route::get('/allsave',[AllSaveController::class, 'citycode'])->name('allsave')->middleware('admin');
+Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay'])->name('listdisplay')->middleware('auth');
 Route::get('/prefecturelistdisplay',[PrefectureListDisplayController::class, 'prefecture'])->name('prefecturelistdisplay');
 Route::get('/citycodepost',[CityCodePostController::class, 'store'])->name('citycodepost');
 Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity');
 Route::get('/listdisplaycityresult',[ListDisplayCityResultController::class, 'listdisplaycityresult'])->name('listdisplaycityresult');
+Route::get('/prefecturebarchart',[PrefectureBarChartController::class, 'prefecturebarchart'])->name('prefecturebarchart');
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>

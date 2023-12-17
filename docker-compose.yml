@@ -56,7 +56,7 @@ services:
         links:
             - mysql:mysql
         ports:
-            - 8080:80
+            - 8020:80
         environment:
             MYSQL_USERNAME: "${DB_USERNAME}"
             MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
