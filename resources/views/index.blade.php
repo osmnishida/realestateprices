@@ -34,17 +34,21 @@
   <div class="mx-auto px-6">
     <p>（国土交通省API取得）取引事例データ</p>
     <br>
+    @guest
+    <p>会員専用のサービスです。<a href="{{ route('login') }}">ログイン</a>、又は、<a href="{{ route('register') }}">新規ユーザ登録してください。</a></p>
+    @endguest
     <br>
     <p>以下会員専用メニュー</p>
     <br>
       @auth
-        <p><a href="{{ route('listdisplay') }}">全土地データ表示→都道府県選択・取引時期選択</a></p>
+        <p><a href="{{ route('listdisplay') }}">取引年別グラフ表示</a></p>
+        <p><a href="{{ route('prefecturebarchart') }}">都道府県別グラフ表示</a></p>
+        <p><a href="{{ route('selectcityplanning') }}">用途地域別グラフ表示</a></p>
         <br>
       @endauth
     <br>
     <br>
     <p>以下管理者専用メニュー</p>
-    <br>
       @auth
         管理者であれば、1と表示される：{{ Auth::user()->role }}
         <br>

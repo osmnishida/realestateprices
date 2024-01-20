@@ -1,15 +1,16 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          一覧表示
+          用途地域別坪単価比較グラフ　条件選択
       </h2>
   </x-slot>
 
   <div class="mx-auto px-6">
-    <form method="get" action="{{ route('listdisplaycity') }}">
+    <form method="get" action="{{ route('cityplanningbarchart') }}">
       @csrf
       <p>都道府県選択</p>
       <select name="prefecture">
+        <option value="全国">全国</option>
         <option value="北海道">北海道</option>
         <option value="青森県">青森県</option>
         <option value="岩手県">岩手県</option>

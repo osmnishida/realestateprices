@@ -8,9 +8,10 @@ use App\Models\LandPost;
 class ListDisplayCityResultController extends Controller
 {
     public function listdisplaycityresult(Request $request) {
-        $cityCode=$request->citycode;
+        $cityCode = $request->citycode;
         $from=$request->from;
         $to=$request->to;
+        // TODO:後で削除
         var_dump($cityCode);
         var_dump($from);
         var_dump($to);

@@ -14,6 +14,8 @@ use App\Http\Controllers\CityCodePostController;
 use App\Http\Controllers\ListDisplayCityController;
 use App\Http\Controllers\ListDisplayCityResultController;
 use App\Http\Controllers\PrefectureBarChartController;
+use App\Http\Controllers\CityplanningBarChartController;
+use App\Http\Controllers\SelectCityplanningController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +53,11 @@ Route::get('/allsave',[AllSaveController::class, 'citycode'])->name('allsave')->
 Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay'])->name('listdisplay')->middleware('auth');
 Route::get('/prefecturelistdisplay',[PrefectureListDisplayController::class, 'prefecture'])->name('prefecturelistdisplay');
 Route::get('/citycodepost',[CityCodePostController::class, 'store'])->name('citycodepost');
-Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity');
+Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity')->middleware('auth');
 Route::get('/listdisplaycityresult',[ListDisplayCityResultController::class, 'listdisplaycityresult'])->name('listdisplaycityresult');
 Route::get('/prefecturebarchart',[PrefectureBarChartController::class, 'prefecturebarchart'])->name('prefecturebarchart');
+Route::get('/cityplanningbarchart',[CityplanningBarChartController::class, 'cityplanningbarchart'])->name('cityplanningbarchart');
+Route::get('/selectcityplanning',[SelectCityplanningController::class, 'selectcityplanning'])->name('selectcityplanning');
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>

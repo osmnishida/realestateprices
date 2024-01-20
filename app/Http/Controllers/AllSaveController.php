@@ -9,7 +9,7 @@ class AllSaveController extends Controller
 {
     public function citycode() {
         $basiccca="https://www.land.mlit.go.jp/webland/api/CitySearch?area=";
-        $prefecturecode="23";
+        $prefecturecode="47";
         $ccaurl="$basiccca" . "$prefecturecode";
         $jsoncc = file_get_contents($ccaurl);
         $jsoncc = mb_convert_encoding($jsoncc, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');

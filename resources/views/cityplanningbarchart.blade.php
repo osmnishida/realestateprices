@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          都道府県坪単価比較グラフ表示
+          用途地域別坪単価比較グラフ表示
       </h2>
   </x-slot>
 

@@ -43,6 +43,7 @@
         echo($counter);
         echo("<br>");
         $averagePricePerUnit = $totalPricePerUnit/$counter;
+        // dd($averagePricePerUnit);
         echo('平均坪単価：'.$averagePricePerUnit);
       @endphp
     @endforeach
@@ -183,8 +184,8 @@
       '2022年' => $averagePricePerUnit2022,
       '2021年' => $averagePricePerUnit2021,
       '2020年' => $averagePricePerUnit2020,
-      '2020年' => $averagePricePerUnit2019,
-      '2020年' => $averagePricePerUnit2018];
+      '2019年' => $averagePricePerUnit2019,
+      '2018年' => $averagePricePerUnit2018];
       var_dump($arrayData);
       $jsonArrayData = json_encode($arrayData);
       var_dump($jsonArrayData);
