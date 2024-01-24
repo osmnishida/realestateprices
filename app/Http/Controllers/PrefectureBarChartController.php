@@ -56,7 +56,7 @@ class PrefectureBarChartController extends Controller
             $averageMiyagiken = $pricePerUnitMiyagiken/$countMiyagiken;
             var_dump($averageMiyagiken);
             echo "<br>";
-            $averageArray["miyagiken"] = "$averageMiyagiken";
+            $averageArray["宮城県"] = "$averageMiyagiken";
         $landPostsAkitaken=LandPost::where('prefecture', '秋田県')->get();
             $pricePerUnitAkitaken=0;
             $countAkitaken=0;
@@ -68,7 +68,7 @@ class PrefectureBarChartController extends Controller
             $averageAkitaken = $pricePerUnitAkitaken/$countAkitaken;
             var_dump($averageAkitaken);
             echo "<br>";
-            $averageArray["akitaken"] = "$averageAkitaken";
+            $averageArray["秋田県"] = "$averageAkitaken";
             var_dump($averageArray);
         $landPostsYamagataken=LandPost::where('prefecture', '山形県')->get();
             $pricePerUnitYamagataken=0;
@@ -81,7 +81,7 @@ class PrefectureBarChartController extends Controller
             $averageyamagataken = $pricePerUnitYamagataken/$countYamagataken;
             var_dump($averageYamagataken);
             echo "<br>";
-            $averageArray["yamagataken"] = "$averageyamagataken";
+            $averageArray["山形県"] = "$averageyamagataken";
         $landPostsFukushimaken=LandPost::where('prefecture', '福島県')->get();
             $pricePerUnitFukushimaken=0;
             $countFukushimaken=0;
@@ -93,7 +93,7 @@ class PrefectureBarChartController extends Controller
             $averageFukushimaken = $pricePerUnitFukushimaken/$countFukushimaken;
             var_dump($averageFukushimaken);
             echo "<br>";
-            $averageArray["fukushimaken"] = "$averageFukushimaken";
+            $averageArray["福島県"] = "$averageFukushimaken";
         $landPostsIbarakiken=LandPost::where('prefecture', '茨城県')->get();
             $pricePerUnitIbarakiken=0;
             $countIbarakiken=0;
@@ -105,7 +105,7 @@ class PrefectureBarChartController extends Controller
             $averageIbarakiken = $pricePerUnitIbarakiken/$countIbarakiken;
             var_dump($averageIbarakiken);
             echo "<br>";
-            $averageArray["ibarakiken"] = "$averageIbarakiken";
+            $averageArray["茨城県"] = "$averageIbarakiken";
         $landPostsTochigiken=LandPost::where('prefecture', '栃木県')->get();
             $pricePerUnitTochigiken=0;
             $countTochigiken=0;
@@ -117,7 +117,7 @@ class PrefectureBarChartController extends Controller
             $averageTochigiken = $pricePerUnitTochigiken/$countTochigiken;
             var_dump($averageTochigiken);
             echo "<br>";
-            $averageArray["tochigiken"] = "$averageTochigiken";
+            $averageArray["栃木県"] = "$averageTochigiken";
         $landPostsGunmaken=LandPost::where('prefecture', '群馬県')->get();
             $pricePerUnitGunmaken=0;
             $countGunmaken=0;
@@ -129,7 +129,7 @@ class PrefectureBarChartController extends Controller
             $averageGunmaken = $pricePerUnitGunmaken/$countGunmaken;
             var_dump($averageGunmaken);
             echo "<br>";
-            $averageArray["gunmaken"] = "$averageGunmaken";
+            $averageArray["群馬県"] = "$averageGunmaken";
         $landPostsSaitamaken=LandPost::where('prefecture', '埼玉県')->get();
             $pricePerUnitSaitamaken=0;
             $countSaitamaken=0;
@@ -141,7 +141,7 @@ class PrefectureBarChartController extends Controller
             $averageSaitamaken = $pricePerUnitSaitamaken/$countSaitamaken;
             var_dump($averageSaitamaken);
             echo "<br>";
-            $averageArray["saitamaken"] = "$averageSaitamaken";
+            $averageArray["埼玉県"] = "$averageSaitamaken";
         $landPostsChibaken=LandPost::where('prefecture', '千葉県')->get();
             $pricePerUnitChibaken=0;
             $countChibaken=0;
@@ -153,7 +153,7 @@ class PrefectureBarChartController extends Controller
             $averageChibaken = $pricePerUnitChibaken/$countChibaken;
             var_dump($averageChibaken);
             echo "<br>";
-            $averageArray["chibaken"] = "$averageChibaken";
+            $averageArray["千葉県"] = "$averageChibaken";
         $landPostsTokyoto=LandPost::where('prefecture', '東京都')->get();
             $pricePerUnitTokyoto=0;
             $countTokyoto=0;
@@ -165,7 +165,7 @@ class PrefectureBarChartController extends Controller
             $averageTokyoto = $pricePerUnitTokyoto/$countTokyoto;
             var_dump($averageTokyoto);
             echo "<br>";
-            $averageArray["tokyoto"] = "$averageTokyoto";
+            $averageArray["東京都"] = "$averageTokyoto";
         $landPostsKanagawaken=LandPost::where('prefecture', '神奈川県')->get();
             $pricePerUnitKanagawaken=0;
             $countKanagawaken=0;
@@ -177,7 +177,7 @@ class PrefectureBarChartController extends Controller
             $averageKanagawaken = $pricePerUnitKanagawaken/$countKanagawaken;
             var_dump($averageKanagawaken);
             echo "<br>";
-            $averageArray["kanagawaken"] = "$averageKanagawaken";
+            $averageArray["神奈川県"] = "$averageKanagawaken";
         $landPostsNiigataken=LandPost::where('prefecture', '新潟県')->get();
             $pricePerUnitNiigataken=0;
             $countNiigataken=0;
@@ -189,7 +189,7 @@ class PrefectureBarChartController extends Controller
             $averageNiigataken = $pricePerUnitNiigataken/$countNiigataken;
             var_dump($averageNiigataken);
             echo "<br>";
-            $averageArray["niigataken"] = "$averageNiigataken";
+            $averageArray["新潟県"] = "$averageNiigataken";
         $landPostsToyamaken=LandPost::where('prefecture', '富山県')->get();
             $pricePerUnitToyamaken=0;
             $countToyamaken=0;
@@ -201,7 +201,7 @@ class PrefectureBarChartController extends Controller
             $averageToyamaken = $pricePerUnitToyamaken/$countToyamaken;
             var_dump($averageToyamaken);
             echo "<br>";
-            $averageArray["toyamaken"] = "$averageToyamaken";
+            $averageArray["富山県"] = "$averageToyamaken";
         $landPostsIshikawaken=LandPost::where('prefecture', '石川県')->get();
             $pricePerUnitIshikawaken=0;
             $countIshikawaken=0;
@@ -213,7 +213,7 @@ class PrefectureBarChartController extends Controller
             $averageIshikawaken = $pricePerUnitIshikawaken/$countIshikawaken;
             var_dump($averageIshikawaken);
             echo "<br>";
-            $averageArray["ishikawaken"] = "$averageIshikawaken";
+            $averageArray["石川県"] = "$averageIshikawaken";
         $landPostsFukuiken=LandPost::where('prefecture', '福井県')->get();
             $pricePerUnitFukuiken=0;
             $countFukuiken=0;
@@ -225,7 +225,7 @@ class PrefectureBarChartController extends Controller
             $averageFukuiken = $pricePerUnitFukuiken/$countFukuiken;
             var_dump($averageFukuiken);
             echo "<br>";
-            $averageArray["fukuiken"] = "$averageFukuiken";
+            $averageArray["福井県"] = "$averageFukuiken";
         $landPostsYamanashiken=LandPost::where('prefecture', '山梨県')->get();
             $pricePerUnitYamanashiken=0;
             $countYamanashiken=0;
@@ -237,7 +237,7 @@ class PrefectureBarChartController extends Controller
             $averageYamanashiken = $pricePerUnitYamanashiken/$countYamanashiken;
             var_dump($averageYamanashiken);
             echo "<br>";
-            $averageArray["yamanashiken"] = "$averageYamanashiken";
+            $averageArray["山梨県"] = "$averageYamanashiken";
         $landPostsNaganoken=LandPost::where('prefecture', '長野県')->get();
             $pricePerUnitNaganoken=0;
             $countNaganoken=0;
@@ -249,7 +249,7 @@ class PrefectureBarChartController extends Controller
             $averageNaganoken = $pricePerUnitNaganoken/$countNaganoken;
             var_dump($averageNaganoken);
             echo "<br>";
-            $averageArray["naganoken"] = "$averageNaganoken";
+            $averageArray["長野県"] = "$averageNaganoken";
         $landPostsGifuken=LandPost::where('prefecture', '岐阜県')->get();
             $pricePerUnitGifuken=0;
             $countGifuken=0;
@@ -261,7 +261,7 @@ class PrefectureBarChartController extends Controller
             $averageGifuken = $pricePerUnitGifuken/$countGifuken;
             var_dump($averageGifuken);
             echo "<br>";
-            $averageArray["gifuken"] = "$averageGifuken";
+            $averageArray["岐阜県"] = "$averageGifuken";
         $landPostsShizuokaken=LandPost::where('prefecture', '静岡県')->get();
             $pricePerUnitShizuokaken=0;
             $countShizuokaken=0;
@@ -273,7 +273,7 @@ class PrefectureBarChartController extends Controller
             $averageShizuokaken = $pricePerUnitShizuokaken/$countShizuokaken;
             var_dump($averageShizuokaken);
             echo "<br>";
-            $averageArray["shizuokaken"] = "$averageShizuokaken";
+            $averageArray["静岡県"] = "$averageShizuokaken";
         $landPostsAichiken=LandPost::where('prefecture', '愛知県')->get();
             $pricePerUnitAichiken=0;
             $countAichiken=0;
@@ -285,7 +285,7 @@ class PrefectureBarChartController extends Controller
             $averageAichiken = $pricePerUnitAichiken/$countAichiken;
             var_dump($averageAichiken);
             echo "<br>";
-            $averageArray["aichiken"] = "$averageAichiken";
+            $averageArray["愛知県"] = "$averageAichiken";
         $landPostsMieken=LandPost::where('prefecture', '三重県')->get();
             $pricePerUnitMieken=0;
             $countMieken=0;
@@ -297,7 +297,7 @@ class PrefectureBarChartController extends Controller
             $averageMieken = $pricePerUnitMieken/$countMieken;
             var_dump($averageMieken);
             echo "<br>";
-            $averageArray["mieken"] = "$averageMieken";
+            $averageArray["三重県"] = "$averageMieken";
         $landPostsShigaken=LandPost::where('prefecture', '滋賀県')->get();
             $pricePerUnitShigaken=0;
             $countShigaken=0;
@@ -309,7 +309,7 @@ class PrefectureBarChartController extends Controller
             $averageShigaken = $pricePerUnitShigaken/$countShigaken;
             var_dump($averageShigaken);
             echo "<br>";
-            $averageArray["shigaken"] = "$averageShigaken";
+            $averageArray["滋賀県"] = "$averageShigaken";
         $landPostsKyotofu=LandPost::where('prefecture', '京都府')->get();
             $pricePerUnitKyotofu=0;
             $countKyotofu=0;
@@ -321,7 +321,7 @@ class PrefectureBarChartController extends Controller
             $averageKyotofu = $pricePerUnitKyotofu/$countKyotofu;
             var_dump($averageKyotofu);
             echo "<br>";
-            $averageArray["kyotofu"] = "$averageKyotofu";
+            $averageArray["京都府"] = "$averageKyotofu";
         $landPostsOsakafu=LandPost::where('prefecture', '大阪府')->get();
             $pricePerUnitOsakafu=0;
             $countOsakafu=0;
@@ -333,7 +333,7 @@ class PrefectureBarChartController extends Controller
             $averageOsakafu = $pricePerUnitOsakafu/$countOsakafu;
             var_dump($averageOsakafu);
             echo "<br>";
-            $averageArray["osakafu"] = "$averageOsakafu";
+            $averageArray["大阪府"] = "$averageOsakafu";
         $landPostsHyogoken=LandPost::where('prefecture', '兵庫県')->get();
             $pricePerUnitHyogoken=0;
             $countHyogoken=0;
@@ -345,7 +345,7 @@ class PrefectureBarChartController extends Controller
             $averageHyogoken = $pricePerUnitHyogoken/$countHyogoken;
             var_dump($averageHyogoken);
             echo "<br>";
-            $averageArray["hyogoken"] = "$averageHyogoken";
+            $averageArray["兵庫県"] = "$averageHyogoken";
         $landPostsNaraken=LandPost::where('prefecture', '奈良県')->get();
             $pricePerUnitNaraken=0;
             $countNaraken=0;
@@ -357,7 +357,7 @@ class PrefectureBarChartController extends Controller
             $averageNaraken = $pricePerUnitNaraken/$countNaraken;
             var_dump($averageNaraken);
             echo "<br>";
-            $averageArray["naraken"] = "$averageNaraken";
+            $averageArray["奈良県"] = "$averageNaraken";
         $landPostsWakayamaken=LandPost::where('prefecture', '和歌山県')->get();
             $pricePerUnitWakayamaken=0;
             $countWakayamaken=0;
@@ -369,7 +369,7 @@ class PrefectureBarChartController extends Controller
             $averageWakayamaken = $pricePerUnitWakayamaken/$countWakayamaken;
             var_dump($averageWakayamaken);
             echo "<br>";
-            $averageArray["Wakayamaken"] = "$averageWakayamaken";
+            $averageArray["和歌山県"] = "$averageWakayamaken";
         $landPostsTottoriken=LandPost::where('prefecture', '鳥取県')->get();
             $pricePerUnitTottoriken=0;
             $countTottoriken=0;
@@ -381,7 +381,7 @@ class PrefectureBarChartController extends Controller
             $averageTottoriken = $pricePerUnitTottoriken/$countTottoriken;
             var_dump($averageTottoriken);
             echo "<br>";
-            $averageArray["tottoriken"] = "$averageTottoriken";
+            $averageArray["鳥取県"] = "$averageTottoriken";
         $landPostsShimaneken=LandPost::where('prefecture', '島根県')->get();
             $pricePerUnitShimaneken=0;
             $countShimaneken=0;
@@ -393,7 +393,7 @@ class PrefectureBarChartController extends Controller
             $averageShimaneken = $pricePerUnitShimaneken/$countShimaneken;
             var_dump($averageShimaneken);
             echo "<br>";
-            $averageArray["shimaneken"] = "$averageShimaneken";
+            $averageArray["島根県"] = "$averageShimaneken";
         $landPostsOkayamaken=LandPost::where('prefecture', '岡山県')->get();
             $pricePerUnitOkayamaken=0;
             $countOkayamaken=0;
@@ -405,7 +405,7 @@ class PrefectureBarChartController extends Controller
             $averageOkayamaken = $pricePerUnitOkayamaken/$countOkayamaken;
             var_dump($averageOkayamaken);
             echo "<br>";
-            $averageArray["okayamaken"] = "$averageOkayamaken";
+            $averageArray["岡山県"] = "$averageOkayamaken";
         $landPostsHiroshimaken=LandPost::where('prefecture', '広島県')->get();
             $pricePerUnitHiroshimaken=0;
             $countHiroshimaken=0;
@@ -417,7 +417,7 @@ class PrefectureBarChartController extends Controller
             $averageHiroshimaken = $pricePerUnitHiroshimaken/$countHiroshimaken;
             var_dump($averageHiroshimaken);
             echo "<br>";
-            $averageArray["hiroshimaken"] = "$averageHiroshimaken";
+            $averageArray["広島県"] = "$averageHiroshimaken";
         $landPostsYamaguchiken=LandPost::where('prefecture', '山口県')->get();
             $pricePerUnitYamaguchiken=0;
             $countYamaguchiken=0;
@@ -429,7 +429,7 @@ class PrefectureBarChartController extends Controller
             $averageYamaguchiken = $pricePerUnitYamaguchiken/$countYamaguchiken;
             var_dump($averageYamaguchiken);
             echo "<br>";
-            $averageArray["yamaguchiken"] = "$averageYamaguchiken";
+            $averageArray["山口県"] = "$averageYamaguchiken";
         $landPostsTokushimaken=LandPost::where('prefecture', '徳島県')->get();
             $pricePerUnitTokushimaken=0;
             $countTokushimaken=0;
@@ -441,7 +441,7 @@ class PrefectureBarChartController extends Controller
             $averageTokushimaken = $pricePerUnitTokushimaken/$countTokushimaken;
             var_dump($averageTokushimaken);
             echo "<br>";
-            $averageArray["tokushimaken"] = "$averageTokushimaken";
+            $averageArray["徳島県"] = "$averageTokushimaken";
         $landPostsKagawaken=LandPost::where('prefecture', '香川県')->get();
             $pricePerUnitKagawaken=0;
             $countKagawaken=0;
@@ -453,7 +453,7 @@ class PrefectureBarChartController extends Controller
             $averageKagawaken = $pricePerUnitKagawaken/$countKagawaken;
             var_dump($averageKagawaken);
             echo "<br>";
-            $averageArray["kagawaken"] = "$averageKagawaken";
+            $averageArray["香川県"] = "$averageKagawaken";
         $landPostsEhimeken=LandPost::where('prefecture', '愛媛県')->get();
             $pricePerUnitEhimeken=0;
             $countEhimeken=0;
@@ -465,7 +465,7 @@ class PrefectureBarChartController extends Controller
             $averageEhimeken = $pricePerUnitEhimeken/$countEhimeken;
             var_dump($averageEhimeken);
             echo "<br>";
-            $averageArray["ehimeken"] = "$averageEhimeken";
+            $averageArray["愛媛県"] = "$averageEhimeken";
         $landPostsKochiken=LandPost::where('prefecture', '高知県')->get();
             $pricePerUnitKochiken=0;
             $countKochiken=0;
@@ -477,7 +477,7 @@ class PrefectureBarChartController extends Controller
             $averageKochiken = $pricePerUnitKochiken/$countKochiken;
             var_dump($averageKochiken);
             echo "<br>";
-            $averageArray["kochiken"] = "$averageKochiken";
+            $averageArray["高知県"] = "$averageKochiken";
         $landPostsFukuokaken=LandPost::where('prefecture', '福岡県')->get();
             $pricePerUnitFukuokaken=0;
             $countFukuokaken=0;
@@ -489,7 +489,7 @@ class PrefectureBarChartController extends Controller
             $averageFukuokaken = $pricePerUnitFukuokaken/$countFukuokaken;
             var_dump($averageFukuokaken);
             echo "<br>";
-            $averageArray["fukuokaken"] = "$averageFukuokaken";
+            $averageArray["福岡県"] = "$averageFukuokaken";
         $landPostsSagaken=LandPost::where('prefecture', '佐賀県')->get();
             $pricePerUnitSagaken=0;
             $countSagaken=0;
@@ -501,7 +501,7 @@ class PrefectureBarChartController extends Controller
             $averageSagaken = $pricePerUnitSagaken/$countSagaken;
             var_dump($averageSagaken);
             echo "<br>";
-            $averageArray["sagaken"] = "$averageSagaken";
+            $averageArray["佐賀県"] = "$averageSagaken";
         $landPostsNagasakiken=LandPost::where('prefecture', '長崎県')->get();
             $pricePerUnitNagasakiken=0;
             $countNagasakiken=0;
@@ -513,7 +513,7 @@ class PrefectureBarChartController extends Controller
             $averageNagasakiken = $pricePerUnitNagasakiken/$countNagasakiken;
             var_dump($averageNagasakiken);
             echo "<br>";
-            $averageArray["nagasakiken"] = "$averageNagasakiken";
+            $averageArray["長崎県"] = "$averageNagasakiken";
         $landPostsKumamotoken=LandPost::where('prefecture', '熊本県')->get();
             $pricePerUnitKumamotoken=0;
             $countKumamotoken=0;
@@ -525,7 +525,7 @@ class PrefectureBarChartController extends Controller
             $averageKumamotoken = $pricePerUnitKumamotoken/$countKumamotoken;
             var_dump($averageKumamotoken);
             echo "<br>";
-            $averageArray["kumamotoken"] = "$averageKumamotoken";
+            $averageArray["熊本県"] = "$averageKumamotoken";
         $landPostsOitaken=LandPost::where('prefecture', '大分県')->get();
             $pricePerUnitOitaken=0;
             $countOitaken=0;
@@ -537,7 +537,7 @@ class PrefectureBarChartController extends Controller
             $averageOitaken = $pricePerUnitOitaken/$countOitaken;
             var_dump($averageOitaken);
             echo "<br>";
-            $averageArray["oitaken"] = "$averageOitaken";
+            $averageArray["大分県"] = "$averageOitaken";
         $landPostsMiyazakiken=LandPost::where('prefecture', '宮崎県')->get();
             $pricePerUnitMiyazakiken=0;
             $countMiyazakiken=0;
@@ -549,7 +549,7 @@ class PrefectureBarChartController extends Controller
             $averageMiyazakiken = $pricePerUnitMiyazakiken/$countMiyazakiken;
             var_dump($averageMiyazakiken);
             echo "<br>";
-            $averageArray["miyazakiken"] = "$averageMiyazakiken";
+            $averageArray["宮崎県"] = "$averageMiyazakiken";
         $landPostsKagoshimaken=LandPost::where('prefecture', '鹿児島県')->get();
             $pricePerUnitKagoshimaken=0;
             $countKagoshimaken=0;
@@ -561,7 +561,7 @@ class PrefectureBarChartController extends Controller
             $averageKagoshimaken = $pricePerUnitKagoshimaken/$countKagoshimaken;
             var_dump($averageKagoshimaken);
             echo "<br>";
-            $averageArray["kagoshimaken"] = "$averageKagoshimaken";
+            $averageArray["鹿児島県"] = "$averageKagoshimaken";
         $landPostsOkinawaken=LandPost::where('prefecture', '沖縄県')->get();
             $pricePerUnitOkinawaken=0;
             $countOkinawaken=0;
@@ -573,7 +573,7 @@ class PrefectureBarChartController extends Controller
             $averageOkinawaken = $pricePerUnitOkinawaken/$countOkinawaken;
             var_dump($averageOkinawaken);
             echo "<br>";
-            $averageArray["okinawaken"] = "$averageOkinawaken";
+            $averageArray["沖縄県"] = "$averageOkinawaken";
 
 
         // var_dump($landPostsGunmaken);

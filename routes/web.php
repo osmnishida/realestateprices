@@ -16,6 +16,8 @@ use App\Http\Controllers\ListDisplayCityResultController;
 use App\Http\Controllers\PrefectureBarChartController;
 use App\Http\Controllers\CityplanningBarChartController;
 use App\Http\Controllers\SelectCityplanningController;
+use App\Http\Controllers\SelectFloorAreaRatioController;
+use App\Http\Controllers\FloorAreaRatioBarChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,8 @@ Route::get('/listdisplaycityresult',[ListDisplayCityResultController::class, 'li
 Route::get('/prefecturebarchart',[PrefectureBarChartController::class, 'prefecturebarchart'])->name('prefecturebarchart');
 Route::get('/cityplanningbarchart',[CityplanningBarChartController::class, 'cityplanningbarchart'])->name('cityplanningbarchart');
 Route::get('/selectcityplanning',[SelectCityplanningController::class, 'selectcityplanning'])->name('selectcityplanning');
+Route::get('/selectfloorarearatio',[SelectFloorAreaRatioController::class, 'selectfloorarearatio'])->name('selectfloorarearatio');
+Route::get('/floorarearatiobarchart',[FloorAreaRatioBarChartController::class, 'floorarearatiobarchart'])->name('floorarearatiobarchart');
 // Route::get('/selectprefecture/prefecturecode', function(){
     // $html = <<<EOF
     // <html>
