@@ -8,10 +8,24 @@
   <canvas id="myChart"></canvas>
 
   <div class="mx-auto px-6">
-    
+    <form method="get" action="{{ route('floorarearatiobarchart') }}">
+      @csrf
+      <select name="citycode">
+        @foreach ($cityCodes as $cc)
+          <option value={{ $cc["citycode"] }}>{{ $cc["cityname"] }}</option>
+          {{ $cc["name"] }}
+          {{ $cc["id"] }}
+          <br>
+        @endforeach
+      </select>
+      <x-primary-button id="button" class="mt-4">
+        送信する
+      </x-primary-button>
+    {{--
   @foreach($averageArray as $key=>$val)
-    {{ $key }}
+  {{ $key }}
   @endforeach
+  --}}
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
