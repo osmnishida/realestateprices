@@ -54,6 +54,6 @@ class FloorAreaRatioBarChartController extends Controller
 
         // TODO後で削除
         //var_dump($averageArray);
-        return view('floorarearatiobarchart',compact('averageArray','cityCodes'));
+        // return view('floorarearatiobarchart',compact('averageArray','cityCodes'));
     }
 }

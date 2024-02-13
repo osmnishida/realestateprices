@@ -8,11 +8,11 @@ use App\Models\LandPost;
 class ListDisplayController extends Controller
 {
     public function listdisplay() {
-        $landPosts=LandPost::orderBy('id', 'desc')->get();
+        // $landPosts=LandPost::orderBy('id', 'desc')->get();
 
-        $paginatePosts=LandPost::paginate(25);
+        // $paginatePosts=LandPost::paginate(25);
         // dd($paginatePosts);
-        return view('listdisplay',compact('landPosts'));
+        return view('listdisplay');
        // return view('listdisplay',compact('landPosts','pagenatePosts'));
     }
 }
