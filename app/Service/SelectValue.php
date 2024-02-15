@@ -1,7 +1,7 @@
 namespace App\Service
 
-class SelectValue extends Controller {
+class SelectValue {
   function avg() {
-    echo ((80 + 70) / 2)."\n";
+    return ((80 + 70) / 2)."\n";
   }
 }

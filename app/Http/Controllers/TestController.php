@@ -9,7 +9,7 @@ class TestController extends Controller
 {
     public function test() {
         $a001 = new SelectValue();
-        $a001->avg();
-        var_dump($a001);
+        $a002 = $a001->avg();
+        var_dump($a002);
     }
 }
