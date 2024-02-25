@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LandPost;
 use App\Models\CityCode;
+use App\Service\SelectValue;
 
 class FloorAreaRatioBarChartController extends Controller
 {
@@ -23,20 +24,27 @@ class FloorAreaRatioBarChartController extends Controller
         $floorAreaRatio = config('settingvalue.floorAreaRatio');
         $averageArray = [];
 
+        $selectValue = new SelectValue($prefecture,$cityPlanning);
+        $selectValue = $selectValue->selectvalue();
+        var_dump($selectValue);
         foreach ($floorAreaRatio as $ratio) {
             $objectFloorAreaRatio = LandPost::where('floorarearatio', $ratio);
             // var_dump($objectFloorAreaRatio);
-            if ($prefecture !== "全国" && $cityPlanning !== "問わない" ) {
+            if ($selectValue === 1 ) {
                 $objectFloorAreaRatio = $objectFloorAreaRatio->where('prefecture',$prefecture)->where('cityplanning',$cityPlanning);
-            } elseif ($prefecture === "全国" && $cityPlanning !== "問わない") {
+            } elseif ($selectValue === 2 ) {
                 $objectFloorAreaRatio = $objectFloorAreaRatio->where('cityplanning',$cityPlanning);
-            } elseif ($prefecture !== "全国" && $cityPlanning === "問わない") {
+            } elseif ($selectValue === 3 ) {
                 $objectFloorAreaRatio = $objectFloorAreaRatio->where('prefecture',$prefecture);
             }
+        
                 $landPostsRatio = $objectFloorAreaRatio->avg('priceperunit');
                 $averageArray[$ratio] = $landPostsRatio;
             
         }
+
+
+
 
         /*
         if ($prefecture === "全国") {
@@ -54,6 +62,6 @@ class FloorAreaRatioBarChartController extends Controller
 
         // TODO後で削除
         //var_dump($averageArray);
-        // return view('floorarearatiobarchart',compact('averageArray','cityCodes'));
+        return view('floorarearatiobarchart',compact('averageArray','cityCodes'));
     }
 }

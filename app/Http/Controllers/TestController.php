@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service\SelectValue;
+use App\Service\Test;
 
 class TestController extends Controller
 {
-    public function test() {
-        $a001 = new SelectValue();
-        $a002 = $a001->avg();
-        var_dump($a002);
+    public function test(Test $a001) {
+        // $a001 = new SelectValue();
+        // $a001->avg(10,3);
+        $a001 = $a001->avg(300,100);
+        var_dump($a001);
     }
 }

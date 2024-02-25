@@ -9,11 +9,8 @@
         }
       </style>
   </x-slot>
-
   @php
-  var_dump($floorAreaRatio);
-  var_dump($prefecture);
-  var_dump($cityPlanning);
+  var_dump($arrjsoncc);
   @endphp
 
   <div class="mx-auto px-6">
@@ -22,17 +19,44 @@
       <p>都道府県選択</p>
       <select id="prefecture" name="prefecture">
         <option value="全国">全国</option>
-        @foreach ($prefecture as $prefectureValue)
-        <option value={{ $prefectureValue }}>{{ $prefectureValue }}</option>
+        @foreach ($selectPrefecture as $prefectureValue)
+          <option value={{ $prefectureValue }}>{{ $prefectureValue }}</option>
         @endforeach
       </select>
       <br>
+      <p>市町村選択</p>
+      <select id="municipality" name="municipality">
+        <option value="全国">全国</option>
+        <select name="citycode">
+        @php
+          print_r($arrjsoncc);
+        @endphp
+        {{--
+          @foreach ($arrjsoncc as $cc)
+            <option value={{ $cc["id"] }}>{{ $cc["name"] }}</option>
+        <?php 
+          print_r($arrjsoncc);
+          // echo $cc[0];
+        ?>
+        
+          {{ $cc["name"] }}
+          {{ $cc["id"] }}
+          <br>
+          <?php
+          // print_r($cc);
+          ?>
+          @endforeach
+          --}}
+        {{-- @foreach ($municipality as $municipalityValue)
+          <option value={{ $municipalityValue }}>{{ $municipalityValue }}</option>
+        @endforeach --}}
+      </select>
       <br>
       <p>用途地域選択</p>
       <select id="cityplanning" name="cityplanning">
         <option value="問わない">問わない</option>
         @foreach ($cityPlanning as $cityPlanningValue)
-        <option value={{ $cityPlanningValue }}>{{ $cityPlanningValue }}</option>
+          <option value={{ $cityPlanningValue }}>{{ $cityPlanningValue }}</option>
         @endforeach
       </select>
       <br>
@@ -54,6 +78,8 @@
         <button id="button">送信する</button>
       --}}
       <p id="demo" class="hidden">Now Loading...</p>
+
+      <div id="result"></div>
 
     </form>
 
@@ -89,6 +115,19 @@
       })
 
     }
+
+    let result = document.querySelector('#result');
+
+    let prefecture = document.querySelector('#prefecture');
+    document.querySelector('#prefecture').addEventListener('input',function() {
+      console.log(prefecture.value);
+      let params = new URLSearchParams();
+      params.set('prefecture', document.querySelector('#prefecture').value);
+      fetch(`selectfloorarearatio?${params.toString()}`)
+        .then(res => res.text())
+        .then(text => result.textContent = text);
+    }, false);
+    //console.log(result);
     // const btn = document.getElementById("button");
     // const list = document.getElementById("list");
     // btn.addEventListener("click",function(){

@@ -20,6 +20,7 @@ use App\Http\Controllers\SelectFloorAreaRatioController;
 use App\Http\Controllers\FloorAreaRatioBarChartController;
 use App\Http\Controllers\TestController;
 use App\Service\SelectValue;
+use App\Http\Controllers\MunicipalityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,5 +86,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/test',[TestController::class, 'test'])->name('test');
+
+Route::get('/municipality',[MunicipalityController::class, 'municipality'])->name('municipality');
 
 require __DIR__.'/auth.php';
