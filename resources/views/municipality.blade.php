@@ -1,11 +1,13 @@
 <?php
 
-var_dump($msg);
+echo $arrjsoncc;
+
+// var_dump($msg);
 // var_dump($data1);
-var_dump($msg2);
+// var_dump($msg2);
 // var_dump($data2);
 // echo $prefecture;
-var_dump($prefecture);
+// var_dump($prefecture);
 
 /*
 {{--

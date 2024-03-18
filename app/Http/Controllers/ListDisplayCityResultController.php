@@ -8,7 +8,7 @@ use App\Models\LandPost;
 class ListDisplayCityResultController extends Controller
 {
     public function listdisplaycityresult(Request $request) {
-        $cityCode = $request->citycode;
+        $cityCode = $request->municipality;
         $from=$request->from;
         $to=$request->to;
         // TODO:後で削除

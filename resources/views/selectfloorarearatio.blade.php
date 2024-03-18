@@ -19,34 +19,15 @@
       <p>都道府県選択</p>
       <select id="prefecture" name="prefecture">
         <option value="全国">全国</option>
-        @foreach ($selectPrefecture as $prefectureValue)
-          <option value={{ $prefectureValue }}>{{ $prefectureValue }}</option>
+        @foreach (config('settingvalue.prefecture') as $prefectureNumber=>$prefectureValue)
+          <option id="{{$prefectureNumber}}" value={{ $prefectureValue }}>{{ $prefectureValue }}</option>
         @endforeach
       </select>
       <br>
       <p>市町村選択</p>
-      <select id="municipality" name="municipality">
+      <select id="cities" name="municipality">
         <option value="全国">全国</option>
-        <select name="citycode">
-        @php
-          print_r($arrjsoncc);
-        @endphp
-        {{--
-          @foreach ($arrjsoncc as $cc)
-            <option value={{ $cc["id"] }}>{{ $cc["name"] }}</option>
-        <?php 
-          print_r($arrjsoncc);
-          // echo $cc[0];
-        ?>
-        
-          {{ $cc["name"] }}
-          {{ $cc["id"] }}
-          <br>
-          <?php
-          // print_r($cc);
-          ?>
-          @endforeach
-          --}}
+
         {{-- @foreach ($municipality as $municipalityValue)
           <option value={{ $municipalityValue }}>{{ $municipalityValue }}</option>
         @endforeach --}}
@@ -117,16 +98,74 @@
     }
 
     let result = document.querySelector('#result');
-
     let prefecture = document.querySelector('#prefecture');
-    document.querySelector('#prefecture').addEventListener('input',function() {
-      console.log(prefecture.value);
+    document.querySelector('#prefecture').addEventListener('change',function() {
+      console.log(this.options[this.selectedIndex].id);
+      const prefectureNumber = this.options[this.selectedIndex].id;
+      const select = document.getElementById("cities");
+      select.innerHtml = '';  // for 全市町村だったらコンティニュー
+      const option = document.createElement("option");
+          option.text = '全市町村';
+          select.add(option);
+      /*
       let params = new URLSearchParams();
       params.set('prefecture', document.querySelector('#prefecture').value);
-      fetch(`selectfloorarearatio?${params.toString()}`)
+      */
+      fetch(`https://www.land.mlit.go.jp/webland/api/CitySearch?area=${prefectureNumber}`)
+        .then(res =>  res.text())
+        .then(cities => {
+          console.log(JSON.parse(cities).data);
+          const select = document.getElementById("cities");//市区町村選択のセレクトボックス
+          JSON.parse(cities).data.forEach(city => {
+            console.log(city);
+          const option = document.createElement("option");
+          option.text = city.name;
+          option.value = city.id;
+          select.add(option);
+          
+          })
+        });
+    }, false);
+
+    // const cities = result.textContent; // ["〇〇町", "xx町", "△△町"];//fetchで取ってきた値 
+    // console.log(cities);
+    
+
+
+
+
+/*
+
+    let result = document.querySelector('#result');
+    let prefecture = document.querySelector('#prefecture');
+    document.querySelector('#prefecture').addEventListener('input',function() {
+      // console.log(prefecture.value);
+      let params = new URLSearchParams();
+      params.set('prefecture', document.querySelector('#prefecture').value);
+      fetch(`municipality?${params.toString()}`)
         .then(res => res.text())
         .then(text => result.textContent = text);
     }, false);
+
+    $basiccca="https://www.land.mlit.go.jp/webland/api/CitySearch?area=";
+        $ccaurl="$basiccca" . "$prefectureNumber";
+        // return $ccaurl;
+        $jsoncc = file_get_contents($ccaurl);
+        $jsoncc = mb_convert_encoding($jsoncc, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+        // return $jsoncc;
+        $arrjsoncc = json_decode($jsoncc,true);
+        $arrjsoncc = $arrjsoncc["data"];
+
+    const cities = result.textContent; // ["〇〇町", "xx町", "△△町"];//fetchで取ってきた値 
+    console.log(cities);
+    const select = document.getElementById("cities");//市区町村選択のセレクトボックス
+    cities.forEach(city => {
+        const option = document.createElement("option");
+        option.text = city;
+        select.add(option);
+    });
+    */
+
     //console.log(result);
     // const btn = document.getElementById("button");
     // const list = document.getElementById("list");
