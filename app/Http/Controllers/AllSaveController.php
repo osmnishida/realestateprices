@@ -8,12 +8,28 @@ use App\Models\LandPost;
 class AllSaveController extends Controller
 {
     public function citycode() {
-        $basiccca="https://www.land.mlit.go.jp/webland/api/CitySearch?area=";
-        $prefecturecode="01";
-        $ccaurl="$basiccca" . "$prefecturecode";
-        $jsoncc = file_get_contents($ccaurl);
+        $opts = array(
+            'http'=>array(
+              'method'=>"GET",
+              'header'=>"Ocp-Apim-Subscription-Key: 0a0cfbcc647a48faabd81dd83f6986e6"
+            )
+          );
+          $context = stream_context_create($opts);
+          /* 上のヘッダと共に http リクエストを www.example.com に対して
+             送出します */
+            // $fp = fopen('http://www.example.com', 'r', false, $context);
+        // header('Ocp-Apim-Subscription-Key: 0a0cfbcc647a48faabd81dd83f6986e6');
+        $basiccca="https://www.reinfolib.mlit.go.jp/ex-api/external/XIT001?";
+        $year = "2015";
+        $prefecturecode="13";
+        $ccaurl="$basiccca" . "year=" . "$year" . "&area=" . "$prefecturecode";
+        $jsoncc = file_get_contents($ccaurl, false, $context);
+        echo mb_detect_encoding($jsoncc);
+        // dd($jsoncc);
         $jsoncc = mb_convert_encoding($jsoncc, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+        dd($jsoncc);
         $arrjsoncc = json_decode($jsoncc,true);
+        // dd($arrjsoncc);
         $arrjsoncc = $arrjsoncc["data"];
         for ($i=72; $i>=1; $i--) {
             if ($i==1) {
