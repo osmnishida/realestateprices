@@ -39,7 +39,7 @@ class OPCodeController extends Controller
 
     //var_dump($http_response_header);
 
-    dd($html);
+    // dd($html);
 
 
         // $basiccca="https://www.land.mlit.go.jp/webland/api/CitySearch?area=";
