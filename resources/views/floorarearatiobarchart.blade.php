@@ -7,6 +7,7 @@
 
   <canvas id="myChart"></canvas>
 
+  {{--
   <div class="mx-auto px-6">
     <form method="get" action="{{ route('floorarearatiobarchart') }}">
       @csrf
@@ -21,6 +22,7 @@
       <x-primary-button id="button" class="mt-4">
         送信する
       </x-primary-button>
+    --}}
     {{--
   @foreach($averageArray as $key=>$val)
   {{ $key }}

@@ -21,6 +21,7 @@ use App\Http\Controllers\FloorAreaRatioBarChartController;
 use App\Http\Controllers\TestController;
 use App\Service\SelectValue;
 use App\Http\Controllers\MunicipalityController;
+use App\Http\Controllers\CityCodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,7 @@ Route::get('/prefecturelistdisplay',[PrefectureListDisplayController::class, 'pr
 Route::get('/citycodepost',[CityCodePostController::class, 'store'])->name('citycodepost');
 Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity')->middleware('auth');
 Route::get('/listdisplaycityresult',[ListDisplayCityResultController::class, 'listdisplaycityresult'])->name('listdisplaycityresult');
+Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture'])->name('selectprefecture');
 Route::get('/prefecturebarchart',[PrefectureBarChartController::class, 'prefecturebarchart'])->name('prefecturebarchart');
 Route::get('/cityplanningbarchart',[CityplanningBarChartController::class, 'cityplanningbarchart'])->name('cityplanningbarchart');
 Route::get('/selectcityplanning',[SelectCityplanningController::class, 'selectcityplanning'])->name('selectcityplanning');
@@ -87,6 +89,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/test',[TestController::class, 'test'])->name('test');
 
-Route::get('/municipality',[MunicipalityController::class, 'municipality'])->name('municipality');
+Route::get('/municipality/{prefectureNumber}',[MunicipalityController::class, 'municipality'])->name('municipality');
 
 require __DIR__.'/auth.php';

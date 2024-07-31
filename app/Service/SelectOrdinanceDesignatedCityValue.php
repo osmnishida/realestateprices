@@ -10,7 +10,7 @@ class SelectValue {
 }
 */
 
-class SelectValue {
+class SelectOrdinanceDesignatedCityValue {
   protected $prefecture;
   protected $municipalityCode;
   protected $cityPlanning;
@@ -21,7 +21,7 @@ class SelectValue {
     $this->cityPlanning = $cityPlanning;
   }
 
-  public function selectvalue() {
+  public function selectOrdinanceDesignatedCityValue() {
 
     $value = 0;
 // $objectFloorAreaRatio = LandPost::where('floorarearatio', $ratio);

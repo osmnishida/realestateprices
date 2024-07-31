@@ -10,7 +10,7 @@
       </style>
   </x-slot>
   @php
-  var_dump($arrjsoncc);
+  // var_dump($data);
   @endphp
 
   <div class="mx-auto px-6">
@@ -27,10 +27,11 @@
       <p>市町村選択</p>
       <select id="cities" name="municipality">
         <option value="全国">全国</option>
-
-        {{-- @foreach ($municipality as $municipalityValue)
+        {{--
+        @foreach ($municipality as $municipalityValue)
           <option value={{ $municipalityValue }}>{{ $municipalityValue }}</option>
-        @endforeach --}}
+        @endforeach
+        --}}
       </select>
       <br>
       <p>用途地域選択</p>
@@ -41,6 +42,20 @@
         @endforeach
       </select>
       <br>
+      <p>取引時期From</p>
+      <select id="from" name="from">
+        <option value="2005-09-30">2005-09-30</option>
+        @foreach (config('settingvalue.period') as $period)
+          <option id="{{$period}}" value={{ $period }}>{{ $period }}</option>
+        @endforeach
+      </select>
+      <p>取引時期To</p>
+      <select id="to" name="to">
+        <option value="2005-09-30">2005-09-30</option>
+        @foreach (config('settingvalue.period') as $period)
+          <option id="{{$period}}" value={{ $period }}>{{ $period }}</option>
+        @endforeach
+      </select>
       <br>
       {{--
       <p>前面道路幅員(m)</p>
@@ -103,7 +118,7 @@
       console.log(this.options[this.selectedIndex].id);
       const prefectureNumber = this.options[this.selectedIndex].id;
       const select = document.getElementById("cities");
-      select.innerHtml = '';  // for 全市町村だったらコンティニュー
+      select.length = 0;  // for 全市町村だったらコンティニュー
       const option = document.createElement("option");
           option.text = '全市町村';
           select.add(option);
@@ -111,12 +126,25 @@
       let params = new URLSearchParams();
       params.set('prefecture', document.querySelector('#prefecture').value);
       */
-      fetch(`https://www.land.mlit.go.jp/webland/api/CitySearch?area=${prefectureNumber}`)
-        .then(res =>  res.text())
+      // fetch(`https://www.land.mlit.go.jp/webland/api/CitySearch?area=${prefectureNumber}`)
+      /*
+      fetch(`https://www.reinfolib.mlit.go.jp/ex-api/external/XIT002?area=${prefectureNumber}`,{headers: {
+      // "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+      "Ocp-Apim-Subscription-Key": "0a0cfbcc647a48faabd81dd83f6986e6",
+      }
+    })
+    */
+    // const params = {method:'post',body:JSON.stringify({prefectureNumber:prefectureNumber})}
+      fetch(`municipality/${prefectureNumber}`)
+        // .then(res =>  res.text())
+        .then(res => res.json())
         .then(cities => {
-          console.log(JSON.parse(cities).data);
+          console.log(cities);
+          console.log(cities.id);
+          // console.log(JSON.parse(cities).jsonData);
           const select = document.getElementById("cities");//市区町村選択のセレクトボックス
-          JSON.parse(cities).data.forEach(city => {
+          cities.forEach(city => {
             console.log(city);
           const option = document.createElement("option");
           option.text = city.name;

@@ -1,6 +1,6 @@
 <?php
 
-echo $arrjsoncc;
+dd($jsonData);
 
 // var_dump($msg);
 // var_dump($data1);

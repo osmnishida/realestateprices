@@ -8,15 +8,17 @@
   <canvas id="myChart"></canvas>
 
   <div class="mx-auto px-6">
-    
-  @foreach($averageArray as $key=>$val)
+  
+  {{--
+  @foreach($sortArray as $key=>$val)
     {{ $key }}
   @endforeach
+  --}}
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript">
-      var jsArrayData = {!!json_encode($averageArray)!!};
+      var jsArrayData = {!!json_encode($sortArray)!!};
   
       const labelArray=[];
       const dataArray=[];
@@ -31,7 +33,7 @@
             data: {
               labels: labelArray,
               datasets: [{
-              label: '# of Votes',
+              label: '坪単価(円）',
               data: dataArray,
               borderWidth: 1
               }]

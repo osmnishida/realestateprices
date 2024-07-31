@@ -42,7 +42,7 @@
     <br>
       @auth
         <p><a href="{{ route('listdisplay') }}">取引年別グラフ表示</a></p>
-        <p><a href="{{ route('prefecturebarchart') }}">都道府県別グラフ表示</a></p>
+        <p><a href="{{ route('selectprefecture') }}">都道府県別グラフ表示</a></p>
         <p><a href="{{ route('selectcityplanning') }}">用途地域別グラフ表示</a></p>
         <p><a href="{{ route('selectfloorarearatio') }}">容積率別グラフ表示</a></p>
         <br>

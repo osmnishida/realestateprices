@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          一覧表示
+          取引年別坪単価グラフ表示
       </h2>
   </x-slot>
 
@@ -22,7 +22,7 @@
       <br>
       <p>市町村選択</p>
       <select id="cities" name="municipality">
-        <option value="全国">全国</option>
+        <option value="全市町村">全市町村</option>
 
         {{-- @foreach ($municipality as $municipalityValue)
           <option value={{ $municipalityValue }}>{{ $municipalityValue }}</option>
@@ -38,6 +38,7 @@
       </select>
       <br>
       <br>
+
       {{--
       <p>前面道路幅員(m)</p>
       <select id="breadth" name="breadth">
@@ -96,23 +97,24 @@
     let result = document.querySelector('#result');
     let prefecture = document.querySelector('#prefecture');
     document.querySelector('#prefecture').addEventListener('change',function() {
-      console.log(this.options[this.selectedIndex].id);
+      // console.log(this.options[this.selectedIndex].id);
       const prefectureNumber = this.options[this.selectedIndex].id;
       const select = document.getElementById("cities");
       select.innerHtml = '';  // for 全市町村だったらコンティニュー
       const option = document.createElement("option");
           option.text = '全市町村';
           select.add(option);
-      /*
-      let params = new URLSearchParams();
-      params.set('prefecture', document.querySelector('#prefecture').value);
-      */
-      fetch(`https://www.land.mlit.go.jp/webland/api/CitySearch?area=${prefectureNumber}`)
-        .then(res =>  res.text())
+      console.log(prefectureNumber);
+
+      fetch(`municipality/${prefectureNumber}`)
+        // .then(res =>  res.text())
+        .then(res => res.json())
         .then(cities => {
-          console.log(JSON.parse(cities).data);
+          console.log(cities);
+          console.log(cities.id);
+          // console.log(JSON.parse(cities).jsonData);
           const select = document.getElementById("cities");//市区町村選択のセレクトボックス
-          JSON.parse(cities).data.forEach(city => {
+          cities.forEach(city => {
             console.log(city);
           const option = document.createElement("option");
           option.text = city.name;
@@ -122,11 +124,37 @@
           })
         });
     }, false);
+  
+      /*
+      let params = new URLSearchParams();
+      params.set('prefecture', document.querySelector('#prefecture').value);
+      */
+      // fetch(`https://www.land.mlit.go.jp/webland/api/CitySearch?area=${prefectureNumber}`)
+      // fetch(`https://www.reinfolib.mlit.go.jp/ex-api/external/XIT002?area=${prefectureNumber}`,{headers: {
+      // "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+      // "Ocp-Apim-Subscription-Key": "0a0cfbcc647a48faabd81dd83f6986e6",
+      // }
+    // })
+        // .then(res =>  res.text())
+        // .then(cities => {
+          // console.log(JSON.parse(cities).data);
+          // const select = document.getElementById("cities");//市区町村選択のセレクトボックス
+          // JSON.parse(cities).data.forEach(city => {
+            // console.log(city);
+          // const option = document.createElement("option");
+          // option.text = city.name;
+          // option.value = city.id;
+          // select.add(option);
+          
+          // })
+        // });
+  // }, false);
 
     // const cities = result.textContent; // ["〇〇町", "xx町", "△△町"];//fetchで取ってきた値 
     // console.log(cities);
 
-    var jsArrayData = {!!json_encode($arrayAvgData)!!};
+    var jsArrayData = {!!json_encode($averageArray)!!};
       console.log(jsArrayData);
   
       const labelArray=[];
@@ -142,7 +170,7 @@
             data: {
               labels: labelArray,
               datasets: [{
-              label: '# of Votes',
+              label: '坪単価（円）',
               data: dataArray,
               borderWidth: 1
               }]

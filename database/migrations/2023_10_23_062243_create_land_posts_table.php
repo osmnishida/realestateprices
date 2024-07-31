@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('classification')->comment('全面道路：種類');
             $table->string('breadth')->comment('全面道路：幅員（m）');
             $table->string('cityplanning')->comment('都市計画');
-            $table->string('coverageratio')->comment('建ぺい率（％）');
+            $table->string('coverageratio')->nullable()->default('未設定')->comment('建ぺい率（％）');
             $table->string('floorarearatio')->comment('容積率（％）');
             $table->string('region')->comment('地区');
             $table->string('period')->comment('取引時点');

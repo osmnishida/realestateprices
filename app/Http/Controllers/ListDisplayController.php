@@ -39,6 +39,7 @@ class ListDisplayController extends Controller
 
     public function listdisplay(Request $request) {
 
+        /*
         $prefecture = "全国";
         $arrjsoncc = ['aaa','bbb','ccc',];
         $selectPrefecture = config('settingvalue.prefecture');
@@ -70,6 +71,7 @@ class ListDisplayController extends Controller
         $arrjsoncc = $arrjsoncc["data"];
             }
         }
+        
     
         $floorAreaRatio = config('settingvalue.floorAreaRatio');
         $cityPlanning = config('settingvalue.cityplanning');
@@ -91,9 +93,30 @@ class ListDisplayController extends Controller
                         '2023年' => $avgLandPosts2023
                         ];
         var_dump($arrayAvgData);
+        */
 
-       return view('listdisplay',compact('floorAreaRatio','selectPrefecture','cityPlanning','arrjsoncc','arrayAvgData'));
-        
+        $floorAreaRatio = config('settingvalue.floorAreaRatio');
+        $cityPlanning = config('settingvalue.cityplanning');
+        $selectPrefecture = config('settingvalue.prefecture');
+
+        $AverageObjects = LandPost::select('Period')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('Period')->get();
+
+        $averageArray = [];
+        foreach ($AverageObjects as $AverageObject) {
+            // var_dump($AverageObject->Period);
+            // echo "<br>";
+            // var_dump($AverageObject->average_price);
+            // echo "<br>";
+            $averageArray["$AverageObject->Period"] = $AverageObject->average_price;
+        }
+
+        // $averageArray = $averageObject->Prefecture;
+        // var_dump($averageArray);
+
+
+       // return view('listdisplay',compact('floorAreaRatio','selectPrefecture','cityPlanning','averageArray'));
+       return view('listdisplay',compact('cityPlanning','averageArray'));
+
     }
 }
 
