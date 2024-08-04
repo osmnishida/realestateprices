@@ -1,1 +1,1 @@
-AddHandler application/x-httpd-php82cgi .php
+AddHandler application/x-httpd-php83cgi .php
