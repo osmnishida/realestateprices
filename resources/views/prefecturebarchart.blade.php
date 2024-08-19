@@ -18,34 +18,65 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript">
-      var jsArrayData = {!!json_encode($sortArray)!!};
-  
-      const labelArray=[];
-      const dataArray=[];
-      Object.keys(jsArrayData).forEach(function(key){
-        labelArray.push(key);
-        dataArray.push(jsArrayData[key]);
+      var jsAverageArrayData = {!!json_encode($sortAverageArray)!!};
+      const labelXArray=[];
+      const dataAverageArray=[];
+      Object.keys(jsAverageArrayData).forEach(function(key){
+        labelXArray.push(key);
+        dataAverageArray.push(jsAverageArrayData[key]);
       })
+
+      var jsCountArrayData = {!!json_encode($sortCountArray)!!};
+      const dataCountArray=[];
+      Object.keys(jsCountArrayData).forEach(function(key){
+        dataCountArray.push(jsCountArrayData[key]);
+      })      
       const ctx = document.getElementById('myChart');
 
       new Chart(ctx, {
-            type: 'bar',
             data: {
-              labels: labelArray,
+              labels: labelXArray,
               datasets: [{
-              label: '坪単価(円）',
-              data: dataArray,
-              borderWidth: 1
-              }]
+                type: "bar",
+                label: '坪単価(円）',
+                data: dataAverageArray,
+                yAxisID: "left-y-axis",
+                borderWidth: 1
+              },
+              {
+                type: "line",
+                label: 'データ数(個）',
+                data: dataCountArray,
+                yAxisID: "right-y-axis",
+                borderWidth: 1
+              }],
             },
             options: {
               scales: {
-                y: {
-                  beginAtZero: true
-                }
+                "left-y-axis": 
+                  {
+                    title: {
+                      display: true,
+                      text: '平均坪単価（円）'
+                    },
+                    type: "linear",
+                    position: "left",
+                  // beginAtZero: true
+                  },
+                  "right-y-axis": 
+                  {
+                    title: {
+                      display: true,
+                      text: 'データ数（個）'
+                    },
+                    type: "linear",
+                    position: "right",
+                  // beginAtZero: true
+                  },
               }
             }
-          });
+          }
+        );
 
     </script>
   </div>

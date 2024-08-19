@@ -8,7 +8,26 @@
   <canvas id="myChart"></canvas>
 
   <div class="mx-auto px-6">
-
+    {{--
+    <p>
+      @foreach($averagePeriodArray as $key => $val)
+        取引時期：{{ $key }}
+        平均坪単価（円）：{{ $val }}
+        <br>
+      @endforeach  
+      <br>
+    </p>
+    <p>
+      @foreach($countPeriodArray as $key => $val)
+        取引時期：{{ $key }}
+        データ数（個）：{{ $val }}
+        <br>
+    @endforeach
+    </p>
+    --}}
+    <p>
+      データ数：{{ $sumCount }}
+    </p>
     {{--
   @foreach($averageArray as $key=>$val)
   {{ $key }}
@@ -18,30 +37,60 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript">
-      var jsArrayData = {!!json_encode($averagePeriodArray)!!};
-  
-      const labelArray=[];
-      const dataArray=[];
-      Object.keys(jsArrayData).forEach(function(key){
-        labelArray.push(key);
-        dataArray.push(jsArrayData[key]);
+      var jsAverageArrayData = {!!json_encode($averagePeriodArray)!!};
+      const labelXArray=[];
+      const dataAverageArray=[];
+      Object.keys(jsAverageArrayData).forEach(function(key){
+        labelXArray.push(key);
+        dataAverageArray.push(jsAverageArrayData[key]);
       })
+
+      var jsCountArrayData = {!!json_encode($countPeriodArray)!!};
+      console.log(jsCountArrayData);
+      const dataCountArray=[];
+      Object.keys(jsCountArrayData).forEach(function(key){
+        dataCountArray.push(jsCountArrayData[key]);
+      })
+
       const ctx = document.getElementById('myChart');
 
       new Chart(ctx, {
-            type: 'line',
             data: {
-              labels: labelArray,
+              labels: labelXArray,
               datasets: [{
-              label: '坪単価(円）',
-              data: dataArray,
-              borderWidth: 1
-              }]
+                type: "bar",
+                label: '平均坪単価(円）',
+                data: dataAverageArray,
+                yAxisID: "left-y-axis",
+                borderWidth: 1
+              },
+              {
+                type: "line",
+                label: 'データ数（個）',
+                data: dataCountArray,
+                yAxisID: "right-y-axis",
+                borderWidth: 1
+              }],
             },
             options: {
               scales: {
-                y: {
-                  beginAtZero: true
+                "left-y-axis": {
+                  title: {
+                    display: true,
+                    text: "平均坪単価(円）"
+                  },
+                  type: "linear",
+                  position: "left"
+                    // beginAtZero: true
+                },
+                "right-y-axis": {
+                  title: {
+                    display: true,
+                    text: "データ数(個）"
+                  },
+                  type: "linear",
+                  position: "right",
+                    // beginAtZero: true
                 }
               }
             }

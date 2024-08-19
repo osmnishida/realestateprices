@@ -5,7 +5,9 @@
       </h2>
   </x-slot>
 
+  {{--
   <canvas id="myChart"></canvas>
+  --}}
 
   {{-- {{ $arrayAvgData }} --}}
 

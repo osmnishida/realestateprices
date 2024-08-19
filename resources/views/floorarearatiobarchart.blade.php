@@ -7,59 +7,85 @@
 
   <canvas id="myChart"></canvas>
 
-  {{--
-  <div class="mx-auto px-6">
-    <form method="get" action="{{ route('floorarearatiobarchart') }}">
-      @csrf
-      <select name="citycode">
-        @foreach ($cityCodes as $cc)
-          <option value={{ $cc["citycode"] }}>{{ $cc["cityname"] }}</option>
-          {{ $cc["name"] }}
-          {{ $cc["id"] }}
-          <br>
-        @endforeach
-      </select>
-      <x-primary-button id="button" class="mt-4">
-        送信する
-      </x-primary-button>
-    --}}
-    {{--
-  @foreach($averageArray as $key=>$val)
-  {{ $key }}
-  @endforeach
-  --}}
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript">
-      var jsArrayData = {!!json_encode($averageArray)!!};
-  
-      const labelArray=[];
-      const dataArray=[];
-      Object.keys(jsArrayData).forEach(function(key){
-        labelArray.push(key);
-        dataArray.push(jsArrayData[key]);
+      var jsAverageArrayData = {!!json_encode($averageArray)!!};
+      const labelXArray=[];
+      const dataAverageArray=[];
+      Object.keys(jsAverageArrayData).forEach(function(key){
+        labelXArray.push(key);
+        dataAverageArray.push(jsAverageArrayData[key]);
       })
+
+      var jsCountArrayData = {!!json_encode($countArray)!!};
+      // const labelCountArray=[];
+      const dataCountArray=[];
+      Object.keys(jsCountArrayData).forEach(function(key){
+        // labelCountArray.push(key);
+        dataCountArray.push(jsCountArrayData[key]);
+      })
+
       const ctx = document.getElementById('myChart');
 
       new Chart(ctx, {
-            type: 'bar',
+  
+            // type: 'bar',
             data: {
-              labels: labelArray,
+              labels: labelXArray,
               datasets: [{
-              label: '# of Votes',
-              data: dataArray,
+              type: 'bar',
+              label: '平均坪単価（円）',
+              data: dataAverageArray,
+              yAxisID: "left-y-axis",
               borderWidth: 1
-              }]
+              },
+              { type: 'line',
+                label: 'データ数',
+                data: dataCountArray,
+                yAxisID: "right-y-axis",
+                borderWidth: 1
+              }],
+              
             },
-            options: {
+
+          options: {
+            responsive: true,
               scales: {
-                y: {
-                  beginAtZero: true
-                }
+                "left-y-axis":
+                  {
+                    title: {
+                      display: true,
+                      text: '平均坪単価（円）'
+                    },
+                    type: "linear",
+                    position: "left"
+                    // ticks: {
+                      // max: 1000000,
+                      // min: 0,
+
+                    // }
+                  // beginAtZero: true,
+                  },
+                  "right-y-axis":
+                  {
+                    title: {
+                      display: true,
+                      text: 'データ数（個）'
+                    }, 
+                    type: "linear",
+                    position: "right"
+                    // ticks: {
+                      // max: 1000,
+                      // min: 0,
+                      
+                    // }
+                  // beginAtZero: true
+                  }
               }
             }
-          });
+          }
+        );
 
     </script>
   </div>

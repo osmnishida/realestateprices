@@ -18,19 +18,20 @@ class PrefectureBarChartController extends Controller
         // echo "<br>";
 
         // ユーザーごとにグループ化して平均値を計算
-        $AverageObjects = LandPost::whereDate('Period', '>=', $from)->whereDate('Period', '<=', $to)->select('Prefecture')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('Prefecture')->get();
+        $averageObjects = LandPost::whereDate('Period', '>=', $from)->whereDate('Period', '<=', $to)->select('Prefecture')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('Prefecture')->get();
+        $countObjects = LandPost::whereDate('Period', '>=', $from)->whereDate('Period', '<=', $to)->select('Prefecture')->selectRaw('COUNT(id) as count')->groupBy('Prefecture')->get();
 
 
         // var_dump($landPostsGunmaken);
         // $averageArrays =$averageObject;
         $averageArray = [];
-        foreach ($AverageObjects as $AverageObject) {
+        foreach ($averageObjects as $averageObject) {
             // dd($AverageObject);
             // var_dump($AverageObject->Prefecture);
             // echo "<br>";
             // var_dump($AverageObject->average_price);
             // echo "<br>";
-            $averageArray["$AverageObject->Prefecture"] = $AverageObject->average_price;
+            $averageArray["$averageObject->Prefecture"] = $averageObject->average_price;
         }
 
         // dd($averageArray);
@@ -40,16 +41,39 @@ class PrefectureBarChartController extends Controller
         // dd($baseArray);
         foreach ($baseArray as $key=>$value) {
             if (array_key_exists($value,$averageArray)) {
-                $sortArray[$value] = $averageArray[$value];
+                $sortAverageArray[$value] = $averageArray[$value];
             }
             else {
-                $sortArray[$value] = 0;
+                $sortAverageArray[$value] = 0;
             }
         }
         // dd($sortArray);
 
         // $averageArray = $averageObject->Prefecture;
         // var_dump($averageArray);
-        return view('prefecturebarchart',compact('sortArray'));
+
+        $countArray = [];
+        foreach ($countObjects as $countObject) {
+            // dd($AverageObject);
+            // var_dump($AverageObject->Prefecture);
+            // echo "<br>";
+            // var_dump($AverageObject->average_price);
+            // echo "<br>";
+            $countArray["$countObject->Prefecture"] = $countObject->count;
+        }
+        // var_dump($countArray);
+
+        // dd($averageArray);
+        // dd($baseArray);
+        foreach ($baseArray as $key=>$value) {
+            if (array_key_exists($value,$countArray)) {
+                $sortCountArray[$value] = $countArray[$value];
+            }
+            else {
+                $sortCountArray[$value] = 0;
+            }
+        }
+        // var_dump($sortCountArray);
+        return view('prefecturebarchart',compact('sortAverageArray','sortCountArray'));
     }
 }

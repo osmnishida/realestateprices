@@ -17,6 +17,7 @@
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-white-900 selection:bg-red-500 selection:text-white">
+          {{--
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
@@ -30,23 +31,33 @@
                     @endauth
                 </div>
             @endif
+            --}}
 
   <div class="mx-auto px-6">
     <p>（国土交通省API取得）取引事例データ</p>
+    <p>出典：国土交通省　不動産情報ライブラリ(https://www.reinfolib.mlit.go.jp/)</p>
+    <p>2005年第３四半期〜2023年第４ls四半期　総データ数1,803,399件</p>
+
     <br>
+    {{--
     @guest
     <p>会員専用のサービスです。<a href="{{ route('login') }}">ログイン</a>、又は、<a href="{{ route('register') }}">新規ユーザ登録してください。</a></p>
     @endguest
     <br>
     <p>以下会員専用メニュー</p>
     <br>
+    --}}
+    {{--
       @auth
+     --}} 
         <p><a href="{{ route('listdisplay') }}">取引年別グラフ表示</a></p>
         <p><a href="{{ route('selectprefecture') }}">都道府県別グラフ表示</a></p>
         <p><a href="{{ route('selectcityplanning') }}">用途地域別グラフ表示</a></p>
         <p><a href="{{ route('selectfloorarearatio') }}">容積率別グラフ表示</a></p>
         <br>
+      {{--  
       @endauth
+      --}}
     <br>
     <br>
     <p>以下管理者専用メニュー</p>
@@ -57,6 +68,6 @@
 
           <a href="{{ route('allsave') }}">APIからデータベースに保存</a>
           <br>
-        @endauth
+        @endif
       @endauth
   </div>

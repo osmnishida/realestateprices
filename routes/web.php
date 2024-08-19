@@ -49,17 +49,17 @@ Route::get('/welcome', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard'); // ->middleware(['auth', 'verified']);
 
 Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture'])->name('selectprefecture');
 Route::get('/opcode',[OPCodeController::class, 'opcode']);
 Route::get('/tcsearch',[TransactionCaseSearchController::class, 'tcsearch']);
 Route::post('/landpost',[LandPostController::class, 'store']);
 Route::get('/allsave',[AllSaveController::class, 'citycode'])->name('allsave')->middleware('admin');
-Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay'])->name('listdisplay')->middleware('auth');
+Route::get('/listdisplay',[ListDisplayController::class, 'listdisplay'])->name('listdisplay'); //->middleware('auth');
 Route::get('/prefecturelistdisplay',[PrefectureListDisplayController::class, 'prefecture'])->name('prefecturelistdisplay');
 Route::get('/citycodepost',[CityCodePostController::class, 'store'])->name('citycodepost');
-Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity')->middleware('auth');
+Route::get('/listdisplaycity',[ListDisplayCityController::class, 'listdisplaycity'])->name('listdisplaycity'); //->middleware('auth');
 Route::get('/listdisplaycityresult',[ListDisplayCityResultController::class, 'listdisplaycityresult'])->name('listdisplaycityresult');
 Route::get('/selectprefecture',[SelectPrefectureController::class, 'selectprefecture'])->name('selectprefecture');
 Route::get('/prefecturebarchart',[PrefectureBarChartController::class, 'prefecturebarchart'])->name('prefecturebarchart');

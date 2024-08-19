@@ -57,6 +57,7 @@ class CityplanningBarChartController extends Controller
         // echo "<br>";
 
         $averageArray = $arrayCityPlanningKey;
+        $countArray = $arrayCityPlanningKey;
 
         $selectValue = new SelectValue($prefecture,$municipalityCode,$cityPlanning);
         $selectValue = $selectValue->selectvalue();
@@ -84,21 +85,28 @@ class CityplanningBarChartController extends Controller
             // echo "<br>";
 
             $averageObjects = LandPost::query();
+            $countObjects = LandPost::query();
             if ($selectValue === 0) {
                 // echo "<br>";
                 $averageObjects = LandPost::whereIn('MunicipalityCode',$arrayValuesSelectOrdinanceDesignatedCity)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
                         // }
                         // $averagePeriodObjects->where('CityPlanning',$cityPlanning);
+                $countObjects = LandPost::whereIn('MunicipalityCode',$arrayValuesSelectOrdinanceDesignatedCity)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(id) as count')->groupBy('CityPlanning')->get();
             } elseif ($selectValue === 1) {
                         $averageObjects = LaandPost::whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+                        $countObjects = LandPost::whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
             } elseif ($selectValue === 2) {
                         $averageObjects = LandPost::whereIn('MunicipalityCode',$arrayValuesSelectOrdinanceDesignatedCity)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+                        $countObjects = LandPost::whereIn('MunicipalityCode',$arrayValuesSelectOrdinanceDesignatedCity)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
             } elseif ($selectValue === 3) {
                         $averageObjects = LandPost::where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+                        $countObjects = LandPost::where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
             } elseif ($selectValue === 4) {
                         $averageObjects = LandPost::where('Prefecture',$prefecture)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+                        $countObjects = LandPost::where('Prefecture',$prefecture)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
             } elseif ($selectValue === 5) {
                         $averageObjects = LandPost::where('Prefecture',$prefecture)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+                        $countObjects = LandPost::where('Prefecture',$prefecture)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
             } 
                     // $averagePeriodObjects->select('Period')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('Period')->orderBy('Period', 'asc')->get();
                     // echo '$averagePeriodObjects:';
@@ -121,18 +129,25 @@ class CityplanningBarChartController extends Controller
         // echo "false";
         // echo "<br>";
         $averegeObjects = LandPost::query();
+        $countObjects = LandPost::query();
         if ($selectValue === 0) {
             $averageObjects = LandPost::where('MunicipalityCode',$municipalityCode)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $countObjects = LandPost::where('MunicipalityCode',$municipalityCode)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get(); 
         } elseif ($selectValue === 1) {
-            $averageObjects = LandPost::query()->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $averageObjects = LandPost::whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $countObjects = LandPost::whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
         } elseif ($selectValue === 2) {
             $averageObjects = LandPost::where('MunicipalityCode',$municipalityCode)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $countObjects = LandPost::where('MunicipalityCode',$municipalityCode)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
         } elseif ($selectValue === 3) {
             $averageObjects = LandPost::where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $countObjects = LandPost::where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
         } elseif ($selectValue === 4) {
             $averageObjects = LandPost::where('Prefecture',$prefecture)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $countObjects = LandPost::where('Prefecture',$prefecture)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
         } elseif ($selectValue === 5) {
             $averageObjects = LandPost::where('Prefecture',$prefecture)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('CityPlanning')->get();
+            $countObjects = LandPost::where('Prefecture',$prefecture)->where('CityPlanning',$cityPlanning)->whereDate('period', '>=' ,$from)->whereDate('period', '<=' ,$to)->select('CityPlanning')->selectRaw('COUNT(PricePerUnit) as count')->groupBy('CityPlanning')->get();
         }
         // $averegePeriodObjects->select('Period')->selectRaw('AVG(PricePerUnit) as average_price')->groupBy('Period')->orderBy('Period', 'asc')->get();
 
@@ -141,7 +156,14 @@ class CityplanningBarChartController extends Controller
         }
         // var_dump($averageArray);
         // echo "<br>";
-            
+        foreach($countObjects as $countObject) {
+            $countArray["$countObject->CityPlanning"] = $countObject->count;   
+        }
+        $sumCount = array_sum($countArray);
+        // var_dump($countArray);
+        // echo "<br>";
+        // var_dump($sumCount);
+        // echo "<br>";
         }
 
 
@@ -163,6 +185,6 @@ class CityplanningBarChartController extends Controller
 
         // TODO後で削除
         //      var_dump($averageArray);
-        return view('cityplanningbarchart',compact('averageArray'));
+        return view('cityplanningbarchart',compact('averageArray','countArray','sumCount'));
     }
 }
