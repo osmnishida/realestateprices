@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('land_posts', function (Blueprint $table) {
-            $table->renameColumn('region','temp_regipon');
-            $table->renameColumn('temp_region','Regipon');
+            $table->renameColumn('region','temp_region');
+            $table->renameColumn('temp_region','Region');
             $table->renameColumn('municipalitycode','temp_municipalityCode');
             $table->renameColumn('temp_municipalitycode','MunicipalityCode');
             $table->renameColumn('prefecture','temp_prefecture');
