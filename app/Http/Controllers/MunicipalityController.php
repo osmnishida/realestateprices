@@ -49,8 +49,9 @@ class MunicipalityController extends Controller
         // $ccaurl = "$basiccca" . "01";
         $ccaurl = (string)$basiccca . (string)$prefectureNumber;
 
-        $Ocp_Apim_Subscription_Key = env('Ocp_Apim_Subscription_Key');
-        dd($Ocp_Apim_Subscription_Key);
+        // $Ocp_Apim_Subscription_Key = env('Ocp_Apim_Subscription_Key');
+        $Ocp_Apim_Subscription_Key = "0a0cfbcc647a48faabd81dd83f6986e6";
+        // dd($Ocp_Apim_Subscription_Key);
 
             $client = new Client();
             $options = ['headers'=>['Ocp-Apim-Subscription-Key'=>$Ocp_Apim_Subscription_Key]];
