@@ -53,7 +53,7 @@ class MunicipalityController extends Controller
 
             $client = new Client();
             $options = ['headers'=>['Ocp-Apim-Subscription-Key'=>$Ocp_Apim_Subscription_Key]];
-            var_dump($options);
+            dd($options);
             $respons = $client->request('GET',$ccaurl,$options);
             $responsData = $respons->getBody();
             $data = json_decode($responsData,true);
